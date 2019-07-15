@@ -1,0 +1,708 @@
+[
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "terrorism",
+   "Place_KB_ID": "1000005",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000005",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": 1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "other"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "1000004"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000005",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000008",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000008",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "terrorism",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": true,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000203"
+            },
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "other"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -0.5,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "1000004"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "1000045"
+            },
+            {
+              "Sentiment": -1.5,
+              "Emotion_Fear": false,
+              "Emotion_Anger": true,
+              "Emotion_Joy": false,
+              "Source": "other"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1.5,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "other"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000203"
+            },
+            {
+              "Sentiment": -1.5,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "1000004"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1.5,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000203"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000061",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000061",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000081",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000081",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "terrorism",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "terrorism",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -2,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -2,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "terrorism",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000008",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000008",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000008",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -2,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "other"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "crimeviolence",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "regimechange",
+   "Place_KB_ID": "1000001",
+   "Status": "not_current",
+   "Urgent": false,
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": 1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "1000041"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000005",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_006929_20180924_I00263TMF",
+   "Justification_ID": "Segment-0",
+   "Type": "infra",
+   "Place_KB_ID": "1000001",
+   "Status": "future",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": true,
+              "Emotion_Joy": false,
+              "Source": "1000004"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007047_20180720_I00263TNI",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_NW_007048_20180606_I00263TNK",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "past",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -2,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1,
+              "Emotion_Fear": false,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  },
+  {
+   "DocumentID": "ENG_WL_006928_20180714_I00263TOD",
+   "Justification_ID": "Segment-0",
+   "Type": "med",
+   "Place_KB_ID": "1000001",
+   "Status": "current",
+   "Urgent": false,
+   "Resolution": "insufficient",
+   "Confidence": 1.0,
+   "SEC": [
+            {
+              "Sentiment": -1.5,
+              "Emotion_Fear": true,
+              "Emotion_Anger": false,
+              "Emotion_Joy": false,
+              "Source": "NIL2000204"
+            }
+          ]
+  }
+]

@@ -1,68 +1,86 @@
 #!/usr/bin/env python3
 
 __author__ = "Oleg Aulov (oleg.aulov@nist.gov), Marion Le Bras (marion.lebras@nist.gov)"
-__version__ = "Development: 0.9"
-__date__ = "07/02/2019"
+__version__ = "Development: 0.9.5"
+__date__ = "07/15/2019"
 
 ################################################################################
 # MAIN
 ################################################################################
 
-
+import os
+import sys
 import argparse
-from lib.lorehlt19helper import *
-from lib.sec_helper import get_SEC_ref, SEC_scoring
+import pandas as pd
 
-if __name__ == "__main__":
+from lib.lorehlt19helper import (
+    boolean_gravity,
+    numeric_gravity,
+    getReference,
+    getsubmission,
+    correctkbids,
+    genMAPMAR_results,
+    genNDCG,
+    genNDCGplot,
+    genSEC_results,
+    getreferenceNDCG,
+    genNDCG_results,
+    precisionN,
+    genprecisionN_results,
+)
 
-    debug = False
+gravity_choices = {"numeric": numeric_gravity, "boolean": boolean_gravity}
 
-    # argument parser ----------------------------------------------------------
+
+def define_parser():
+    """CLI argument parser"""
     parser = argparse.ArgumentParser(
         description="Generates PR curves for the LORELEI speech evaluation"
     )
-    parser.add_argument(
-        "-s", "--system-output", help="Path to the system output", required=True
-    )
+    parser.add_argument("-s", "--system-output", help="Path to the system output", required=True)
     parser.add_argument(
         "-g", "--ground-truth", help="Path to the ground truth directory", required=True
     )
+    parser.add_argument("-e", "--edl-subm", help="Path to the EDL submission file", required=False)
+    parser.add_argument("-r", "--edl-ref", help="Path to the EDL reference file", required=False)
+
     parser.add_argument(
-        "-e", "--edl-subm", help="Path to the EDL submission file", required=False
+        "--gravity",
+        choices=list(gravity_choices.keys()),
+        default="boolean",
+        help="specifies the type of gravity function",
     )
-    parser.add_argument(
-        "-r", "--edl-ref", help="Path to the EDL reference file", required=False
-    )
+
     parser.add_argument(
         "-l", "--filelist", help="Path to the ground truth directory", required=False
     )
     parser.add_argument(
-        "-o",
-        "--output-directory",
-        help="Path to save the evaluation output",
-        required=True,
+        "-o", "--output-directory", help="Path to save the evaluation output", required=True
+    )
+    parser.add_argument("-m", "--system-name", help="Name of the SF system", required=True)
+    parser.add_argument(
+        "-p", "--filename-prefix", help="prefix for output files", required=False, default=""
     )
     parser.add_argument(
-        "-m", "--system-name", help="Name of the SF system", required=True
-    )
-    parser.add_argument(
-        "-p",
-        "--filename-prefix",
-        help="prefix for output files",
+        "-k",
+        "--skip_sec",
+        help="If present will skip diagnostic metrics of SEC",
         required=False,
-        default="",
-    )
-    parser.add_argument(
-        "-t",
-        "--system-threshold",
-        help="Threshold",
-        required=False,
-        default=0,
-        type=float,
+        action="store_true",
     )
 
-    args = parser.parse_args()
-    # print (args)
+    parser.add_argument(
+        "-t", "--system-threshold", help="Threshold", required=False, default=0, type=float
+    )
+    return parser
+
+
+def main():
+    debug = False
+
+    args = define_parser().parse_args()
+    print(args)
+    print("skipsec is: ", str(args.skip_sec))
 
     referencePath = args.ground_truth
     referenceFilelist = args.filelist
@@ -71,6 +89,7 @@ if __name__ == "__main__":
     systemName = args.system_name
     threshold = args.system_threshold
     fnprefix = args.filename_prefix
+    skipsecflag = args.skip_sec
     # create output directory
     try:
         if not os.path.exists(outputDir):
@@ -85,58 +104,49 @@ if __name__ == "__main__":
     if not os.path.exists(systemPath):
         sys.exit("PATH NOT FOUND: " + systemPath)
 
+    gravity_func = gravity_choices[args.gravity]
+
     referenceTable = getReference(
-        path=referencePath, gravity=advanced_gravity, filelist=referenceFilelist
+        path=referencePath, gravity=gravity_func, filelist=referenceFilelist
     )
     systemTable = getsubmission(
-        filename=systemPath, gravity=advanced_gravity, filelist=referenceFilelist
+        filename=systemPath, gravity=gravity_func, filelist=referenceFilelist
     )
     systemTable = correctkbids(systemTable, referenceTable)
 
-    genSEC_results(os.path.join(outputDir, fnprefix + "diagnostic_SEC_scores.txt"), referenceTable, referencePath, systemTable)
-
+    if not skipsecflag:
+        genSEC_results(
+            os.path.join(outputDir, fnprefix + "_diagnostic_SEC_scores.txt"),
+            referenceTable,
+            referencePath,
+            systemTable,
+            edl_ref=args.edl_ref,
+            edl_subm=args.edl_subm,
+        )
 
     referenceNDCG = getreferenceNDCG(referenceTable)
     myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="standard")
     genNDCG_results(
-        os.path.join(outputDir, fnprefix + "standard_nDCG_Scores.txt"),
-        systemName,
-        myndcg,
-        k,
+        os.path.join(outputDir, fnprefix + "standard_nDCG_Scores.txt"), systemName, myndcg, k
     )
     genNDCGplot(
-        os.path.join(outputDir, fnprefix + "standard_curve_nDCG" + ".pdf"),
-        systemName,
-        k,
-        myndcg,
+        os.path.join(outputDir, fnprefix + "standard_curve_nDCG" + ".pdf"), systemName, k, myndcg
     )
 
     myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="vindictive")
     genNDCG_results(
-        os.path.join(outputDir, fnprefix + "vindictive_nDCG_Scores.txt"),
-        systemName,
-        myndcg,
-        k,
+        os.path.join(outputDir, fnprefix + "vindictive_nDCG_Scores.txt"), systemName, myndcg, k
     )
     genNDCGplot(
-        os.path.join(outputDir, fnprefix + "vindictive_curve_nDCG" + ".pdf"),
-        systemName,
-        k,
-        myndcg,
+        os.path.join(outputDir, fnprefix + "vindictive_curve_nDCG" + ".pdf"), systemName, k, myndcg
     )
 
     myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="forgiving")
     genNDCG_results(
-        os.path.join(outputDir, fnprefix + "forgiving_nDCG_Scores.txt"),
-        systemName,
-        myndcg,
-        k,
+        os.path.join(outputDir, fnprefix + "forgiving_nDCG_Scores.txt"), systemName, myndcg, k
     )
     genNDCGplot(
-        os.path.join(outputDir, fnprefix + "forgiving_curve_nDCG" + ".pdf"),
-        systemName,
-        k,
-        myndcg,
+        os.path.join(outputDir, fnprefix + "forgiving_curve_nDCG" + ".pdf"), systemName, k, myndcg
     )
 
     genMAPMAR_results(
@@ -152,10 +162,10 @@ if __name__ == "__main__":
     )
 
     referenceTable = getReference(
-        path=referencePath, gravity=gravity, filelist=referenceFilelist
+        path=referencePath, gravity=boolean_gravity, filelist=referenceFilelist
     )
     systemTable = getsubmission(
-        filename=systemPath, gravity=gravity, filelist=referenceFilelist
+        filename=systemPath, gravity=boolean_gravity, filelist=referenceFilelist
     )
     systemTable = correctkbids(systemTable, referenceTable)
 
@@ -228,3 +238,7 @@ if __name__ == "__main__":
         F_results_file.write("Recall_TypePlace:\t" + str(myrecall) + "\n")
 
     print("Success!")
+
+
+if __name__ == "__main__":
+    main()

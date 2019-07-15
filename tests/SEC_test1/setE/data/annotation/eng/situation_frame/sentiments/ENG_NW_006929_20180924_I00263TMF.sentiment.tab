@@ -1,0 +1,3 @@
+user_id	doc_id	sentiment_value	polarity	emotion_value	source	target	kb_id
+12345	ENG_NW_006929_20180924_I00263TMF	1	positive	none	other	Frame-5c18fed90000000000000014-217	other
+12345	ENG_NW_006929_20180924_I00263TMF	-1	negative	anger	Ent-ENG_NW_006929_20180924_I00263TMF-163	Frame-5c18fed90000000000000014-223	1000004

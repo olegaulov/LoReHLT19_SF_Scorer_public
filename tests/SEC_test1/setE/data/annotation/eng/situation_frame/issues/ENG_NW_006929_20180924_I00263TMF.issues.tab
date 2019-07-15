@@ -1,0 +1,7 @@
+user_id	doc_id	frame_id	frame_type	issue_type	place_id	proxy_status	issue_status	description	kb_id
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-187	issue	terrorism	Ent-ENG_NW_006929_20180924_I00263TMF-147	False	current	crossfire between demonstrators, whom police characterized as terrorists	1000005
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-193	issue	crimeviolence	Ent-ENG_NW_006929_20180924_I00263TMF-147	False	current	families who were defending their homes from attacks by violent groups	1000005
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-199	issue	crimeviolence	Ent-ENG_NW_006929_20180924_I00263TMF-151	False	current	protests in crackdowns by Nicaraguan police	1000001
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-205	issue	crimeviolence	Ent-ENG_NW_006929_20180924_I00263TMF-151	False	not_current	civil war	1000001
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-211	issue	crimeviolence	Ent-ENG_NW_006929_20180924_I00263TMF-151	False	not_current	battled U.S.-backed Contra rebels	1000001
+314	ENG_NW_006929_20180924_I00263TMF	Frame-5c18fed90000000000000014-217	issue	regimechange	Ent-ENG_NW_006929_20180924_I00263TMF-151	False	current	urged Ortega to bring forward elections	1000001

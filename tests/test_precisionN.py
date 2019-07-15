@@ -6,7 +6,7 @@ import os
 lib_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
 sys.path.append(lib_path)
 
-from lib.lorehlt18helper import *
+from lib.lorehlt19helper import *
 
 
 class TestPrecisionN(TestCase):

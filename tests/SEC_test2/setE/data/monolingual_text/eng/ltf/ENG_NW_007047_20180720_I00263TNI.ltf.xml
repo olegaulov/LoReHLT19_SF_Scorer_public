@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_TEXT SYSTEM "ltf.v1.5.dtd">
+<LCTL_TEXT lang="eng">
+<DOC id="ENG_NW_007047_20180720_I00263TNI" lang="eng" tokenization="tokenization_parameters.v5.0" grammar="none" raw_text_char_length="3686" raw_text_md5="c7f3c992a5674063a327d42da8ec60a4">
+<TEXT>
+<SEG id="segment-0" start_char="1" end_char="69">
+<ORIGINAL_TEXT>Nicaragua's Ortega, battling protests, calls for peace on anniversary</ORIGINAL_TEXT>
+<TOKEN id="token-0-0" pos="word" morph="none" start_char="1" end_char="11">Nicaragua's</TOKEN>
+<TOKEN id="token-0-1" pos="word" morph="none" start_char="13" end_char="18">Ortega</TOKEN>
+<TOKEN id="token-0-2" pos="punct" morph="none" start_char="19" end_char="19">,</TOKEN>
+<TOKEN id="token-0-3" pos="word" morph="none" start_char="21" end_char="28">battling</TOKEN>
+<TOKEN id="token-0-4" pos="word" morph="none" start_char="30" end_char="37">protests</TOKEN>
+<TOKEN id="token-0-5" pos="punct" morph="none" start_char="38" end_char="38">,</TOKEN>
+<TOKEN id="token-0-6" pos="word" morph="none" start_char="40" end_char="44">calls</TOKEN>
+<TOKEN id="token-0-7" pos="word" morph="none" start_char="46" end_char="48">for</TOKEN>
+<TOKEN id="token-0-8" pos="word" morph="none" start_char="50" end_char="54">peace</TOKEN>
+<TOKEN id="token-0-9" pos="word" morph="none" start_char="56" end_char="57">on</TOKEN>
+<TOKEN id="token-0-10" pos="word" morph="none" start_char="59" end_char="69">anniversary</TOKEN>
+</SEG>
+<SEG id="segment-1" start_char="73" end_char="338">
+<ORIGINAL_TEXT>MANAGUA (Reuters) - Nicaraguan President Daniel Ortega urged protesters on Thursday to end what he described as their attempt to destabilize the country, after police and heavily armed supporters suppressed weeks of protests in clashes that killed almost 300 people.</ORIGINAL_TEXT>
+<TOKEN id="token-1-0" pos="word" morph="none" start_char="73" end_char="79">MANAGUA</TOKEN>
+<TOKEN id="token-1-1" pos="punct" morph="none" start_char="81" end_char="81">(</TOKEN>
+<TOKEN id="token-1-2" pos="word" morph="none" start_char="82" end_char="88">Reuters</TOKEN>
+<TOKEN id="token-1-3" pos="punct" morph="none" start_char="89" end_char="89">)</TOKEN>
+<TOKEN id="token-1-4" pos="punct" morph="none" start_char="91" end_char="91">-</TOKEN>
+<TOKEN id="token-1-5" pos="word" morph="none" start_char="93" end_char="102">Nicaraguan</TOKEN>
+<TOKEN id="token-1-6" pos="word" morph="none" start_char="104" end_char="112">President</TOKEN>
+<TOKEN id="token-1-7" pos="word" morph="none" start_char="114" end_char="119">Daniel</TOKEN>
+<TOKEN id="token-1-8" pos="word" morph="none" start_char="121" end_char="126">Ortega</TOKEN>
+<TOKEN id="token-1-9" pos="word" morph="none" start_char="128" end_char="132">urged</TOKEN>
+<TOKEN id="token-1-10" pos="word" morph="none" start_char="134" end_char="143">protesters</TOKEN>
+<TOKEN id="token-1-11" pos="word" morph="none" start_char="145" end_char="146">on</TOKEN>
+<TOKEN id="token-1-12" pos="word" morph="none" start_char="148" end_char="155">Thursday</TOKEN>
+<TOKEN id="token-1-13" pos="word" morph="none" start_char="157" end_char="158">to</TOKEN>
+<TOKEN id="token-1-14" pos="word" morph="none" start_char="160" end_char="162">end</TOKEN>
+<TOKEN id="token-1-15" pos="word" morph="none" start_char="164" end_char="167">what</TOKEN>
+<TOKEN id="token-1-16" pos="word" morph="none" start_char="169" end_char="170">he</TOKEN>
+<TOKEN id="token-1-17" pos="word" morph="none" start_char="172" end_char="180">described</TOKEN>
+<TOKEN id="token-1-18" pos="word" morph="none" start_char="182" end_char="183">as</TOKEN>
+<TOKEN id="token-1-19" pos="word" morph="none" start_char="185" end_char="189">their</TOKEN>
+<TOKEN id="token-1-20" pos="word" morph="none" start_char="191" end_char="197">attempt</TOKEN>
+<TOKEN id="token-1-21" pos="word" morph="none" start_char="199" end_char="200">to</TOKEN>
+<TOKEN id="token-1-22" pos="word" morph="none" start_char="202" end_char="212">destabilize</TOKEN>
+<TOKEN id="token-1-23" pos="word" morph="none" start_char="214" end_char="216">the</TOKEN>
+<TOKEN id="token-1-24" pos="word" morph="none" start_char="218" end_char="224">country</TOKEN>
+<TOKEN id="token-1-25" pos="punct" morph="none" start_char="225" end_char="225">,</TOKEN>
+<TOKEN id="token-1-26" pos="word" morph="none" start_char="227" end_char="231">after</TOKEN>
+<TOKEN id="token-1-27" pos="word" morph="none" start_char="233" end_char="238">police</TOKEN>
+<TOKEN id="token-1-28" pos="word" morph="none" start_char="240" end_char="242">and</TOKEN>
+<TOKEN id="token-1-29" pos="word" morph="none" start_char="244" end_char="250">heavily</TOKEN>
+<TOKEN id="token-1-30" pos="word" morph="none" start_char="252" end_char="256">armed</TOKEN>
+<TOKEN id="token-1-31" pos="word" morph="none" start_char="258" end_char="267">supporters</TOKEN>
+<TOKEN id="token-1-32" pos="word" morph="none" start_char="269" end_char="278">suppressed</TOKEN>
+<TOKEN id="token-1-33" pos="word" morph="none" start_char="280" end_char="284">weeks</TOKEN>
+<TOKEN id="token-1-34" pos="word" morph="none" start_char="286" end_char="287">of</TOKEN>
+<TOKEN id="token-1-35" pos="word" morph="none" start_char="289" end_char="296">protests</TOKEN>
+<TOKEN id="token-1-36" pos="word" morph="none" start_char="298" end_char="299">in</TOKEN>
+<TOKEN id="token-1-37" pos="word" morph="none" start_char="301" end_char="307">clashes</TOKEN>
+<TOKEN id="token-1-38" pos="word" morph="none" start_char="309" end_char="312">that</TOKEN>
+<TOKEN id="token-1-39" pos="word" morph="none" start_char="314" end_char="319">killed</TOKEN>
+<TOKEN id="token-1-40" pos="word" morph="none" start_char="321" end_char="326">almost</TOKEN>
+<TOKEN id="token-1-41" pos="word" morph="none" start_char="328" end_char="330">300</TOKEN>
+<TOKEN id="token-1-42" pos="word" morph="none" start_char="332" end_char="337">people</TOKEN>
+<TOKEN id="token-1-43" pos="punct" morph="none" start_char="338" end_char="338">.</TOKEN>
+</SEG>
+<SEG id="segment-2" start_char="342" end_char="545">
+<ORIGINAL_TEXT>Nicaragua's President Daniel Ortega and Vice President Rosario Murillo arrive for an event to mark the 39th anniversary of the Sandinista victory over President Somoza in Managua, Nicaragua July 19, 2018.</ORIGINAL_TEXT>
+<TOKEN id="token-2-0" pos="word" morph="none" start_char="342" end_char="352">Nicaragua's</TOKEN>
+<TOKEN id="token-2-1" pos="word" morph="none" start_char="354" end_char="362">President</TOKEN>
+<TOKEN id="token-2-2" pos="word" morph="none" start_char="364" end_char="369">Daniel</TOKEN>
+<TOKEN id="token-2-3" pos="word" morph="none" start_char="371" end_char="376">Ortega</TOKEN>
+<TOKEN id="token-2-4" pos="word" morph="none" start_char="378" end_char="380">and</TOKEN>
+<TOKEN id="token-2-5" pos="word" morph="none" start_char="382" end_char="385">Vice</TOKEN>
+<TOKEN id="token-2-6" pos="word" morph="none" start_char="387" end_char="395">President</TOKEN>
+<TOKEN id="token-2-7" pos="word" morph="none" start_char="397" end_char="403">Rosario</TOKEN>
+<TOKEN id="token-2-8" pos="word" morph="none" start_char="405" end_char="411">Murillo</TOKEN>
+<TOKEN id="token-2-9" pos="word" morph="none" start_char="413" end_char="418">arrive</TOKEN>
+<TOKEN id="token-2-10" pos="word" morph="none" start_char="420" end_char="422">for</TOKEN>
+<TOKEN id="token-2-11" pos="word" morph="none" start_char="424" end_char="425">an</TOKEN>
+<TOKEN id="token-2-12" pos="word" morph="none" start_char="427" end_char="431">event</TOKEN>
+<TOKEN id="token-2-13" pos="word" morph="none" start_char="433" end_char="434">to</TOKEN>
+<TOKEN id="token-2-14" pos="word" morph="none" start_char="436" end_char="439">mark</TOKEN>
+<TOKEN id="token-2-15" pos="word" morph="none" start_char="441" end_char="443">the</TOKEN>
+<TOKEN id="token-2-16" pos="word" morph="none" start_char="445" end_char="448">39th</TOKEN>
+<TOKEN id="token-2-17" pos="word" morph="none" start_char="450" end_char="460">anniversary</TOKEN>
+<TOKEN id="token-2-18" pos="word" morph="none" start_char="462" end_char="463">of</TOKEN>
+<TOKEN id="token-2-19" pos="word" morph="none" start_char="465" end_char="467">the</TOKEN>
+<TOKEN id="token-2-20" pos="word" morph="none" start_char="469" end_char="478">Sandinista</TOKEN>
+<TOKEN id="token-2-21" pos="word" morph="none" start_char="480" end_char="486">victory</TOKEN>
+<TOKEN id="token-2-22" pos="word" morph="none" start_char="488" end_char="491">over</TOKEN>
+<TOKEN id="token-2-23" pos="word" morph="none" start_char="493" end_char="501">President</TOKEN>
+<TOKEN id="token-2-24" pos="word" morph="none" start_char="503" end_char="508">Somoza</TOKEN>
+<TOKEN id="token-2-25" pos="word" morph="none" start_char="510" end_char="511">in</TOKEN>
+<TOKEN id="token-2-26" pos="word" morph="none" start_char="513" end_char="519">Managua</TOKEN>
+<TOKEN id="token-2-27" pos="punct" morph="none" start_char="520" end_char="520">,</TOKEN>
+<TOKEN id="token-2-28" pos="word" morph="none" start_char="522" end_char="530">Nicaragua</TOKEN>
+<TOKEN id="token-2-29" pos="word" morph="none" start_char="532" end_char="535">July</TOKEN>
+<TOKEN id="token-2-30" pos="word" morph="none" start_char="537" end_char="538">19</TOKEN>
+<TOKEN id="token-2-31" pos="punct" morph="none" start_char="539" end_char="539">,</TOKEN>
+<TOKEN id="token-2-32" pos="word" morph="none" start_char="541" end_char="544">2018</TOKEN>
+<TOKEN id="token-2-33" pos="punct" morph="none" start_char="545" end_char="545">.</TOKEN>
+</SEG>
+<SEG id="segment-3" start_char="547" end_char="567">
+<ORIGINAL_TEXT>REUTERS/Jorge Cabrera</ORIGINAL_TEXT>
+<TOKEN id="token-3-0" pos="unknown" morph="none" start_char="547" end_char="559">REUTERS/Jorge</TOKEN>
+<TOKEN id="token-3-1" pos="word" morph="none" start_char="561" end_char="567">Cabrera</TOKEN>
+</SEG>
+<SEG id="segment-4" start_char="570" end_char="809">
+<ORIGINAL_TEXT>Speaking on the 39th anniversary of the Sandinista revolution in which Ortega overthrew a dictatorship, the ex-guerilla called on tens of thousands of cheering supporters to defend their country and for protesters to rectify their behavior.</ORIGINAL_TEXT>
+<TOKEN id="token-4-0" pos="word" morph="none" start_char="570" end_char="577">Speaking</TOKEN>
+<TOKEN id="token-4-1" pos="word" morph="none" start_char="579" end_char="580">on</TOKEN>
+<TOKEN id="token-4-2" pos="word" morph="none" start_char="582" end_char="584">the</TOKEN>
+<TOKEN id="token-4-3" pos="word" morph="none" start_char="586" end_char="589">39th</TOKEN>
+<TOKEN id="token-4-4" pos="word" morph="none" start_char="591" end_char="601">anniversary</TOKEN>
+<TOKEN id="token-4-5" pos="word" morph="none" start_char="603" end_char="604">of</TOKEN>
+<TOKEN id="token-4-6" pos="word" morph="none" start_char="606" end_char="608">the</TOKEN>
+<TOKEN id="token-4-7" pos="word" morph="none" start_char="610" end_char="619">Sandinista</TOKEN>
+<TOKEN id="token-4-8" pos="word" morph="none" start_char="621" end_char="630">revolution</TOKEN>
+<TOKEN id="token-4-9" pos="word" morph="none" start_char="632" end_char="633">in</TOKEN>
+<TOKEN id="token-4-10" pos="word" morph="none" start_char="635" end_char="639">which</TOKEN>
+<TOKEN id="token-4-11" pos="word" morph="none" start_char="641" end_char="646">Ortega</TOKEN>
+<TOKEN id="token-4-12" pos="word" morph="none" start_char="648" end_char="656">overthrew</TOKEN>
+<TOKEN id="token-4-13" pos="word" morph="none" start_char="658" end_char="658">a</TOKEN>
+<TOKEN id="token-4-14" pos="word" morph="none" start_char="660" end_char="671">dictatorship</TOKEN>
+<TOKEN id="token-4-15" pos="punct" morph="none" start_char="672" end_char="672">,</TOKEN>
+<TOKEN id="token-4-16" pos="word" morph="none" start_char="674" end_char="676">the</TOKEN>
+<TOKEN id="token-4-17" pos="unknown" morph="none" start_char="678" end_char="688">ex-guerilla</TOKEN>
+<TOKEN id="token-4-18" pos="word" morph="none" start_char="690" end_char="695">called</TOKEN>
+<TOKEN id="token-4-19" pos="word" morph="none" start_char="697" end_char="698">on</TOKEN>
+<TOKEN id="token-4-20" pos="word" morph="none" start_char="700" end_char="703">tens</TOKEN>
+<TOKEN id="token-4-21" pos="word" morph="none" start_char="705" end_char="706">of</TOKEN>
+<TOKEN id="token-4-22" pos="word" morph="none" start_char="708" end_char="716">thousands</TOKEN>
+<TOKEN id="token-4-23" pos="word" morph="none" start_char="718" end_char="719">of</TOKEN>
+<TOKEN id="token-4-24" pos="word" morph="none" start_char="721" end_char="728">cheering</TOKEN>
+<TOKEN id="token-4-25" pos="word" morph="none" start_char="730" end_char="739">supporters</TOKEN>
+<TOKEN id="token-4-26" pos="word" morph="none" start_char="741" end_char="742">to</TOKEN>
+<TOKEN id="token-4-27" pos="word" morph="none" start_char="744" end_char="749">defend</TOKEN>
+<TOKEN id="token-4-28" pos="word" morph="none" start_char="751" end_char="755">their</TOKEN>
+<TOKEN id="token-4-29" pos="word" morph="none" start_char="757" end_char="763">country</TOKEN>
+<TOKEN id="token-4-30" pos="word" morph="none" start_char="765" end_char="767">and</TOKEN>
+<TOKEN id="token-4-31" pos="word" morph="none" start_char="769" end_char="771">for</TOKEN>
+<TOKEN id="token-4-32" pos="word" morph="none" start_char="773" end_char="782">protesters</TOKEN>
+<TOKEN id="token-4-33" pos="word" morph="none" start_char="784" end_char="785">to</TOKEN>
+<TOKEN id="token-4-34" pos="word" morph="none" start_char="787" end_char="793">rectify</TOKEN>
+<TOKEN id="token-4-35" pos="word" morph="none" start_char="795" end_char="799">their</TOKEN>
+<TOKEN id="token-4-36" pos="word" morph="none" start_char="801" end_char="808">behavior</TOKEN>
+<TOKEN id="token-4-37" pos="punct" morph="none" start_char="809" end_char="809">.</TOKEN>
+</SEG>
+<SEG id="segment-5" start_char="812" end_char="849">
+<ORIGINAL_TEXT>You all are the defenders of peace ...</ORIGINAL_TEXT>
+<TOKEN id="token-5-0" pos="word" morph="none" start_char="812" end_char="814">You</TOKEN>
+<TOKEN id="token-5-1" pos="word" morph="none" start_char="816" end_char="818">all</TOKEN>
+<TOKEN id="token-5-2" pos="word" morph="none" start_char="820" end_char="822">are</TOKEN>
+<TOKEN id="token-5-3" pos="word" morph="none" start_char="824" end_char="826">the</TOKEN>
+<TOKEN id="token-5-4" pos="word" morph="none" start_char="828" end_char="836">defenders</TOKEN>
+<TOKEN id="token-5-5" pos="word" morph="none" start_char="838" end_char="839">of</TOKEN>
+<TOKEN id="token-5-6" pos="word" morph="none" start_char="841" end_char="845">peace</TOKEN>
+<TOKEN id="token-5-7" pos="punct" morph="none" start_char="847" end_char="849">...</TOKEN>
+</SEG>
+<SEG id="segment-6" start_char="851" end_char="981">
+<ORIGINAL_TEXT>We have to re-establish order in our country, said Ortega, wearing Nicaraguas flag colors with a white shirt and blue baseball cap.</ORIGINAL_TEXT>
+<TOKEN id="token-6-0" pos="word" morph="none" start_char="851" end_char="852">We</TOKEN>
+<TOKEN id="token-6-1" pos="word" morph="none" start_char="854" end_char="857">have</TOKEN>
+<TOKEN id="token-6-2" pos="word" morph="none" start_char="859" end_char="860">to</TOKEN>
+<TOKEN id="token-6-3" pos="unknown" morph="none" start_char="862" end_char="873">re-establish</TOKEN>
+<TOKEN id="token-6-4" pos="word" morph="none" start_char="875" end_char="879">order</TOKEN>
+<TOKEN id="token-6-5" pos="word" morph="none" start_char="881" end_char="882">in</TOKEN>
+<TOKEN id="token-6-6" pos="word" morph="none" start_char="884" end_char="886">our</TOKEN>
+<TOKEN id="token-6-7" pos="word" morph="none" start_char="888" end_char="894">country</TOKEN>
+<TOKEN id="token-6-8" pos="punct" morph="none" start_char="895" end_char="895">,</TOKEN>
+<TOKEN id="token-6-9" pos="word" morph="none" start_char="897" end_char="900">said</TOKEN>
+<TOKEN id="token-6-10" pos="word" morph="none" start_char="902" end_char="907">Ortega</TOKEN>
+<TOKEN id="token-6-11" pos="punct" morph="none" start_char="908" end_char="908">,</TOKEN>
+<TOKEN id="token-6-12" pos="word" morph="none" start_char="910" end_char="916">wearing</TOKEN>
+<TOKEN id="token-6-13" pos="word" morph="none" start_char="918" end_char="927">Nicaraguas</TOKEN>
+<TOKEN id="token-6-14" pos="word" morph="none" start_char="929" end_char="932">flag</TOKEN>
+<TOKEN id="token-6-15" pos="word" morph="none" start_char="934" end_char="939">colors</TOKEN>
+<TOKEN id="token-6-16" pos="word" morph="none" start_char="941" end_char="944">with</TOKEN>
+<TOKEN id="token-6-17" pos="word" morph="none" start_char="946" end_char="946">a</TOKEN>
+<TOKEN id="token-6-18" pos="word" morph="none" start_char="948" end_char="952">white</TOKEN>
+<TOKEN id="token-6-19" pos="word" morph="none" start_char="954" end_char="958">shirt</TOKEN>
+<TOKEN id="token-6-20" pos="word" morph="none" start_char="960" end_char="962">and</TOKEN>
+<TOKEN id="token-6-21" pos="word" morph="none" start_char="964" end_char="967">blue</TOKEN>
+<TOKEN id="token-6-22" pos="word" morph="none" start_char="969" end_char="976">baseball</TOKEN>
+<TOKEN id="token-6-23" pos="word" morph="none" start_char="978" end_char="980">cap</TOKEN>
+<TOKEN id="token-6-24" pos="punct" morph="none" start_char="981" end_char="981">.</TOKEN>
+</SEG>
+<SEG id="segment-7" start_char="984" end_char="1034">
+<ORIGINAL_TEXT>The road isnt war, but peace and dialogue, he said.</ORIGINAL_TEXT>
+<TOKEN id="token-7-0" pos="word" morph="none" start_char="984" end_char="986">The</TOKEN>
+<TOKEN id="token-7-1" pos="word" morph="none" start_char="988" end_char="991">road</TOKEN>
+<TOKEN id="token-7-2" pos="word" morph="none" start_char="993" end_char="996">isnt</TOKEN>
+<TOKEN id="token-7-3" pos="word" morph="none" start_char="998" end_char="1000">war</TOKEN>
+<TOKEN id="token-7-4" pos="punct" morph="none" start_char="1001" end_char="1001">,</TOKEN>
+<TOKEN id="token-7-5" pos="word" morph="none" start_char="1003" end_char="1005">but</TOKEN>
+<TOKEN id="token-7-6" pos="word" morph="none" start_char="1007" end_char="1011">peace</TOKEN>
+<TOKEN id="token-7-7" pos="word" morph="none" start_char="1013" end_char="1015">and</TOKEN>
+<TOKEN id="token-7-8" pos="word" morph="none" start_char="1017" end_char="1024">dialogue</TOKEN>
+<TOKEN id="token-7-9" pos="punct" morph="none" start_char="1025" end_char="1025">,</TOKEN>
+<TOKEN id="token-7-10" pos="word" morph="none" start_char="1027" end_char="1028">he</TOKEN>
+<TOKEN id="token-7-11" pos="word" morph="none" start_char="1030" end_char="1033">said</TOKEN>
+<TOKEN id="token-7-12" pos="punct" morph="none" start_char="1034" end_char="1034">.</TOKEN>
+</SEG>
+<SEG id="segment-8" start_char="1036" end_char="1108">
+<ORIGINAL_TEXT>Supporters applauded his remarks, chanting: He stays, my commander stays.</ORIGINAL_TEXT>
+<TOKEN id="token-8-0" pos="word" morph="none" start_char="1036" end_char="1045">Supporters</TOKEN>
+<TOKEN id="token-8-1" pos="word" morph="none" start_char="1047" end_char="1055">applauded</TOKEN>
+<TOKEN id="token-8-2" pos="word" morph="none" start_char="1057" end_char="1059">his</TOKEN>
+<TOKEN id="token-8-3" pos="word" morph="none" start_char="1061" end_char="1067">remarks</TOKEN>
+<TOKEN id="token-8-4" pos="punct" morph="none" start_char="1068" end_char="1068">,</TOKEN>
+<TOKEN id="token-8-5" pos="word" morph="none" start_char="1070" end_char="1077">chanting</TOKEN>
+<TOKEN id="token-8-6" pos="punct" morph="none" start_char="1078" end_char="1078">:</TOKEN>
+<TOKEN id="token-8-7" pos="word" morph="none" start_char="1080" end_char="1081">He</TOKEN>
+<TOKEN id="token-8-8" pos="word" morph="none" start_char="1083" end_char="1087">stays</TOKEN>
+<TOKEN id="token-8-9" pos="punct" morph="none" start_char="1088" end_char="1088">,</TOKEN>
+<TOKEN id="token-8-10" pos="word" morph="none" start_char="1090" end_char="1091">my</TOKEN>
+<TOKEN id="token-8-11" pos="word" morph="none" start_char="1093" end_char="1101">commander</TOKEN>
+<TOKEN id="token-8-12" pos="word" morph="none" start_char="1103" end_char="1107">stays</TOKEN>
+<TOKEN id="token-8-13" pos="punct" morph="none" start_char="1108" end_char="1108">.</TOKEN>
+</SEG>
+<SEG id="segment-9" start_char="1111" end_char="1376">
+<ORIGINAL_TEXT>International condemnation of Ortega has grown sharply in the past week over his deployment of police and allied paramilitary forces to quash the unrest, during which almost 300 people have been killed and many more injured since the protests began three months ago.</ORIGINAL_TEXT>
+<TOKEN id="token-9-0" pos="word" morph="none" start_char="1111" end_char="1123">International</TOKEN>
+<TOKEN id="token-9-1" pos="word" morph="none" start_char="1125" end_char="1136">condemnation</TOKEN>
+<TOKEN id="token-9-2" pos="word" morph="none" start_char="1138" end_char="1139">of</TOKEN>
+<TOKEN id="token-9-3" pos="word" morph="none" start_char="1141" end_char="1146">Ortega</TOKEN>
+<TOKEN id="token-9-4" pos="word" morph="none" start_char="1148" end_char="1150">has</TOKEN>
+<TOKEN id="token-9-5" pos="word" morph="none" start_char="1152" end_char="1156">grown</TOKEN>
+<TOKEN id="token-9-6" pos="word" morph="none" start_char="1158" end_char="1164">sharply</TOKEN>
+<TOKEN id="token-9-7" pos="word" morph="none" start_char="1166" end_char="1167">in</TOKEN>
+<TOKEN id="token-9-8" pos="word" morph="none" start_char="1169" end_char="1171">the</TOKEN>
+<TOKEN id="token-9-9" pos="word" morph="none" start_char="1173" end_char="1176">past</TOKEN>
+<TOKEN id="token-9-10" pos="word" morph="none" start_char="1178" end_char="1181">week</TOKEN>
+<TOKEN id="token-9-11" pos="word" morph="none" start_char="1183" end_char="1186">over</TOKEN>
+<TOKEN id="token-9-12" pos="word" morph="none" start_char="1188" end_char="1190">his</TOKEN>
+<TOKEN id="token-9-13" pos="word" morph="none" start_char="1192" end_char="1201">deployment</TOKEN>
+<TOKEN id="token-9-14" pos="word" morph="none" start_char="1203" end_char="1204">of</TOKEN>
+<TOKEN id="token-9-15" pos="word" morph="none" start_char="1206" end_char="1211">police</TOKEN>
+<TOKEN id="token-9-16" pos="word" morph="none" start_char="1213" end_char="1215">and</TOKEN>
+<TOKEN id="token-9-17" pos="word" morph="none" start_char="1217" end_char="1222">allied</TOKEN>
+<TOKEN id="token-9-18" pos="word" morph="none" start_char="1224" end_char="1235">paramilitary</TOKEN>
+<TOKEN id="token-9-19" pos="word" morph="none" start_char="1237" end_char="1242">forces</TOKEN>
+<TOKEN id="token-9-20" pos="word" morph="none" start_char="1244" end_char="1245">to</TOKEN>
+<TOKEN id="token-9-21" pos="word" morph="none" start_char="1247" end_char="1251">quash</TOKEN>
+<TOKEN id="token-9-22" pos="word" morph="none" start_char="1253" end_char="1255">the</TOKEN>
+<TOKEN id="token-9-23" pos="word" morph="none" start_char="1257" end_char="1262">unrest</TOKEN>
+<TOKEN id="token-9-24" pos="punct" morph="none" start_char="1263" end_char="1263">,</TOKEN>
+<TOKEN id="token-9-25" pos="word" morph="none" start_char="1265" end_char="1270">during</TOKEN>
+<TOKEN id="token-9-26" pos="word" morph="none" start_char="1272" end_char="1276">which</TOKEN>
+<TOKEN id="token-9-27" pos="word" morph="none" start_char="1278" end_char="1283">almost</TOKEN>
+<TOKEN id="token-9-28" pos="word" morph="none" start_char="1285" end_char="1287">300</TOKEN>
+<TOKEN id="token-9-29" pos="word" morph="none" start_char="1289" end_char="1294">people</TOKEN>
+<TOKEN id="token-9-30" pos="word" morph="none" start_char="1296" end_char="1299">have</TOKEN>
+<TOKEN id="token-9-31" pos="word" morph="none" start_char="1301" end_char="1304">been</TOKEN>
+<TOKEN id="token-9-32" pos="word" morph="none" start_char="1306" end_char="1311">killed</TOKEN>
+<TOKEN id="token-9-33" pos="word" morph="none" start_char="1313" end_char="1315">and</TOKEN>
+<TOKEN id="token-9-34" pos="word" morph="none" start_char="1317" end_char="1320">many</TOKEN>
+<TOKEN id="token-9-35" pos="word" morph="none" start_char="1322" end_char="1325">more</TOKEN>
+<TOKEN id="token-9-36" pos="word" morph="none" start_char="1327" end_char="1333">injured</TOKEN>
+<TOKEN id="token-9-37" pos="word" morph="none" start_char="1335" end_char="1339">since</TOKEN>
+<TOKEN id="token-9-38" pos="word" morph="none" start_char="1341" end_char="1343">the</TOKEN>
+<TOKEN id="token-9-39" pos="word" morph="none" start_char="1345" end_char="1352">protests</TOKEN>
+<TOKEN id="token-9-40" pos="word" morph="none" start_char="1354" end_char="1358">began</TOKEN>
+<TOKEN id="token-9-41" pos="word" morph="none" start_char="1360" end_char="1364">three</TOKEN>
+<TOKEN id="token-9-42" pos="word" morph="none" start_char="1366" end_char="1371">months</TOKEN>
+<TOKEN id="token-9-43" pos="word" morph="none" start_char="1373" end_char="1375">ago</TOKEN>
+<TOKEN id="token-9-44" pos="punct" morph="none" start_char="1376" end_char="1376">.</TOKEN>
+</SEG>
+<SEG id="segment-10" start_char="1379" end_char="1530">
+<ORIGINAL_TEXT>The violence marks the most severe crisis to face the 72-year-old socialist since the civil war of the 1980s, when he battled U.S.-backed Contra rebels.</ORIGINAL_TEXT>
+<TOKEN id="token-10-0" pos="word" morph="none" start_char="1379" end_char="1381">The</TOKEN>
+<TOKEN id="token-10-1" pos="word" morph="none" start_char="1383" end_char="1390">violence</TOKEN>
+<TOKEN id="token-10-2" pos="word" morph="none" start_char="1392" end_char="1396">marks</TOKEN>
+<TOKEN id="token-10-3" pos="word" morph="none" start_char="1398" end_char="1400">the</TOKEN>
+<TOKEN id="token-10-4" pos="word" morph="none" start_char="1402" end_char="1405">most</TOKEN>
+<TOKEN id="token-10-5" pos="word" morph="none" start_char="1407" end_char="1412">severe</TOKEN>
+<TOKEN id="token-10-6" pos="word" morph="none" start_char="1414" end_char="1419">crisis</TOKEN>
+<TOKEN id="token-10-7" pos="word" morph="none" start_char="1421" end_char="1422">to</TOKEN>
+<TOKEN id="token-10-8" pos="word" morph="none" start_char="1424" end_char="1427">face</TOKEN>
+<TOKEN id="token-10-9" pos="word" morph="none" start_char="1429" end_char="1431">the</TOKEN>
+<TOKEN id="token-10-10" pos="unknown" morph="none" start_char="1433" end_char="1443">72-year-old</TOKEN>
+<TOKEN id="token-10-11" pos="word" morph="none" start_char="1445" end_char="1453">socialist</TOKEN>
+<TOKEN id="token-10-12" pos="word" morph="none" start_char="1455" end_char="1459">since</TOKEN>
+<TOKEN id="token-10-13" pos="word" morph="none" start_char="1461" end_char="1463">the</TOKEN>
+<TOKEN id="token-10-14" pos="word" morph="none" start_char="1465" end_char="1469">civil</TOKEN>
+<TOKEN id="token-10-15" pos="word" morph="none" start_char="1471" end_char="1473">war</TOKEN>
+<TOKEN id="token-10-16" pos="word" morph="none" start_char="1475" end_char="1476">of</TOKEN>
+<TOKEN id="token-10-17" pos="word" morph="none" start_char="1478" end_char="1480">the</TOKEN>
+<TOKEN id="token-10-18" pos="word" morph="none" start_char="1482" end_char="1486">1980s</TOKEN>
+<TOKEN id="token-10-19" pos="punct" morph="none" start_char="1487" end_char="1487">,</TOKEN>
+<TOKEN id="token-10-20" pos="word" morph="none" start_char="1489" end_char="1492">when</TOKEN>
+<TOKEN id="token-10-21" pos="word" morph="none" start_char="1494" end_char="1495">he</TOKEN>
+<TOKEN id="token-10-22" pos="word" morph="none" start_char="1497" end_char="1503">battled</TOKEN>
+<TOKEN id="token-10-23" pos="unknown" morph="none" start_char="1505" end_char="1515">U.S.-backed</TOKEN>
+<TOKEN id="token-10-24" pos="word" morph="none" start_char="1517" end_char="1522">Contra</TOKEN>
+<TOKEN id="token-10-25" pos="word" morph="none" start_char="1524" end_char="1529">rebels</TOKEN>
+<TOKEN id="token-10-26" pos="punct" morph="none" start_char="1530" end_char="1530">.</TOKEN>
+</SEG>
+<SEG id="segment-11" start_char="1532" end_char="1672">
+<ORIGINAL_TEXT>Currently serving his third term after winning electoral office in 2006, Ortega is resisting demands for his resignation and early elections.</ORIGINAL_TEXT>
+<TOKEN id="token-11-0" pos="word" morph="none" start_char="1532" end_char="1540">Currently</TOKEN>
+<TOKEN id="token-11-1" pos="word" morph="none" start_char="1542" end_char="1548">serving</TOKEN>
+<TOKEN id="token-11-2" pos="word" morph="none" start_char="1550" end_char="1552">his</TOKEN>
+<TOKEN id="token-11-3" pos="word" morph="none" start_char="1554" end_char="1558">third</TOKEN>
+<TOKEN id="token-11-4" pos="word" morph="none" start_char="1560" end_char="1563">term</TOKEN>
+<TOKEN id="token-11-5" pos="word" morph="none" start_char="1565" end_char="1569">after</TOKEN>
+<TOKEN id="token-11-6" pos="word" morph="none" start_char="1571" end_char="1577">winning</TOKEN>
+<TOKEN id="token-11-7" pos="word" morph="none" start_char="1579" end_char="1587">electoral</TOKEN>
+<TOKEN id="token-11-8" pos="word" morph="none" start_char="1589" end_char="1594">office</TOKEN>
+<TOKEN id="token-11-9" pos="word" morph="none" start_char="1596" end_char="1597">in</TOKEN>
+<TOKEN id="token-11-10" pos="word" morph="none" start_char="1599" end_char="1602">2006</TOKEN>
+<TOKEN id="token-11-11" pos="punct" morph="none" start_char="1603" end_char="1603">,</TOKEN>
+<TOKEN id="token-11-12" pos="word" morph="none" start_char="1605" end_char="1610">Ortega</TOKEN>
+<TOKEN id="token-11-13" pos="word" morph="none" start_char="1612" end_char="1613">is</TOKEN>
+<TOKEN id="token-11-14" pos="word" morph="none" start_char="1615" end_char="1623">resisting</TOKEN>
+<TOKEN id="token-11-15" pos="word" morph="none" start_char="1625" end_char="1631">demands</TOKEN>
+<TOKEN id="token-11-16" pos="word" morph="none" start_char="1633" end_char="1635">for</TOKEN>
+<TOKEN id="token-11-17" pos="word" morph="none" start_char="1637" end_char="1639">his</TOKEN>
+<TOKEN id="token-11-18" pos="word" morph="none" start_char="1641" end_char="1651">resignation</TOKEN>
+<TOKEN id="token-11-19" pos="word" morph="none" start_char="1653" end_char="1655">and</TOKEN>
+<TOKEN id="token-11-20" pos="word" morph="none" start_char="1657" end_char="1661">early</TOKEN>
+<TOKEN id="token-11-21" pos="word" morph="none" start_char="1663" end_char="1671">elections</TOKEN>
+<TOKEN id="token-11-22" pos="punct" morph="none" start_char="1672" end_char="1672">.</TOKEN>
+</SEG>
+<SEG id="segment-12" start_char="1675" end_char="1687">
+<ORIGINAL_TEXT>LIVING IN WAR</ORIGINAL_TEXT>
+<TOKEN id="token-12-0" pos="word" morph="none" start_char="1675" end_char="1680">LIVING</TOKEN>
+<TOKEN id="token-12-1" pos="word" morph="none" start_char="1682" end_char="1683">IN</TOKEN>
+<TOKEN id="token-12-2" pos="word" morph="none" start_char="1685" end_char="1687">WAR</TOKEN>
+</SEG>
+<SEG id="segment-13" start_char="1691" end_char="1996">
+<ORIGINAL_TEXT>Ortega supporters flocked from around the country to the event near Xolotlan Lake north of the capital adjacent to a towering black silhouette of Nicaraguan revolutionary Augusto Sandino, whose resistance to the 1927-33 U.S. occupation of the Central American country inspired the movement named after him.</ORIGINAL_TEXT>
+<TOKEN id="token-13-0" pos="word" morph="none" start_char="1691" end_char="1696">Ortega</TOKEN>
+<TOKEN id="token-13-1" pos="word" morph="none" start_char="1698" end_char="1707">supporters</TOKEN>
+<TOKEN id="token-13-2" pos="word" morph="none" start_char="1709" end_char="1715">flocked</TOKEN>
+<TOKEN id="token-13-3" pos="word" morph="none" start_char="1717" end_char="1720">from</TOKEN>
+<TOKEN id="token-13-4" pos="word" morph="none" start_char="1722" end_char="1727">around</TOKEN>
+<TOKEN id="token-13-5" pos="word" morph="none" start_char="1729" end_char="1731">the</TOKEN>
+<TOKEN id="token-13-6" pos="word" morph="none" start_char="1733" end_char="1739">country</TOKEN>
+<TOKEN id="token-13-7" pos="word" morph="none" start_char="1741" end_char="1742">to</TOKEN>
+<TOKEN id="token-13-8" pos="word" morph="none" start_char="1744" end_char="1746">the</TOKEN>
+<TOKEN id="token-13-9" pos="word" morph="none" start_char="1748" end_char="1752">event</TOKEN>
+<TOKEN id="token-13-10" pos="word" morph="none" start_char="1754" end_char="1757">near</TOKEN>
+<TOKEN id="token-13-11" pos="word" morph="none" start_char="1759" end_char="1766">Xolotlan</TOKEN>
+<TOKEN id="token-13-12" pos="word" morph="none" start_char="1768" end_char="1771">Lake</TOKEN>
+<TOKEN id="token-13-13" pos="word" morph="none" start_char="1773" end_char="1777">north</TOKEN>
+<TOKEN id="token-13-14" pos="word" morph="none" start_char="1779" end_char="1780">of</TOKEN>
+<TOKEN id="token-13-15" pos="word" morph="none" start_char="1782" end_char="1784">the</TOKEN>
+<TOKEN id="token-13-16" pos="word" morph="none" start_char="1786" end_char="1792">capital</TOKEN>
+<TOKEN id="token-13-17" pos="word" morph="none" start_char="1794" end_char="1801">adjacent</TOKEN>
+<TOKEN id="token-13-18" pos="word" morph="none" start_char="1803" end_char="1804">to</TOKEN>
+<TOKEN id="token-13-19" pos="word" morph="none" start_char="1806" end_char="1806">a</TOKEN>
+<TOKEN id="token-13-20" pos="word" morph="none" start_char="1808" end_char="1815">towering</TOKEN>
+<TOKEN id="token-13-21" pos="word" morph="none" start_char="1817" end_char="1821">black</TOKEN>
+<TOKEN id="token-13-22" pos="word" morph="none" start_char="1823" end_char="1832">silhouette</TOKEN>
+<TOKEN id="token-13-23" pos="word" morph="none" start_char="1834" end_char="1835">of</TOKEN>
+<TOKEN id="token-13-24" pos="word" morph="none" start_char="1837" end_char="1846">Nicaraguan</TOKEN>
+<TOKEN id="token-13-25" pos="word" morph="none" start_char="1848" end_char="1860">revolutionary</TOKEN>
+<TOKEN id="token-13-26" pos="word" morph="none" start_char="1862" end_char="1868">Augusto</TOKEN>
+<TOKEN id="token-13-27" pos="word" morph="none" start_char="1870" end_char="1876">Sandino</TOKEN>
+<TOKEN id="token-13-28" pos="punct" morph="none" start_char="1877" end_char="1877">,</TOKEN>
+<TOKEN id="token-13-29" pos="word" morph="none" start_char="1879" end_char="1883">whose</TOKEN>
+<TOKEN id="token-13-30" pos="word" morph="none" start_char="1885" end_char="1894">resistance</TOKEN>
+<TOKEN id="token-13-31" pos="word" morph="none" start_char="1896" end_char="1897">to</TOKEN>
+<TOKEN id="token-13-32" pos="word" morph="none" start_char="1899" end_char="1901">the</TOKEN>
+<TOKEN id="token-13-33" pos="unknown" morph="none" start_char="1903" end_char="1909">1927-33</TOKEN>
+<TOKEN id="token-13-34" pos="unknown" morph="none" start_char="1911" end_char="1913">U.S</TOKEN>
+<TOKEN id="token-13-35" pos="punct" morph="none" start_char="1914" end_char="1914">.</TOKEN>
+<TOKEN id="token-13-36" pos="word" morph="none" start_char="1916" end_char="1925">occupation</TOKEN>
+<TOKEN id="token-13-37" pos="word" morph="none" start_char="1927" end_char="1928">of</TOKEN>
+<TOKEN id="token-13-38" pos="word" morph="none" start_char="1930" end_char="1932">the</TOKEN>
+<TOKEN id="token-13-39" pos="word" morph="none" start_char="1934" end_char="1940">Central</TOKEN>
+<TOKEN id="token-13-40" pos="word" morph="none" start_char="1942" end_char="1949">American</TOKEN>
+<TOKEN id="token-13-41" pos="word" morph="none" start_char="1951" end_char="1957">country</TOKEN>
+<TOKEN id="token-13-42" pos="word" morph="none" start_char="1959" end_char="1966">inspired</TOKEN>
+<TOKEN id="token-13-43" pos="word" morph="none" start_char="1968" end_char="1970">the</TOKEN>
+<TOKEN id="token-13-44" pos="word" morph="none" start_char="1972" end_char="1979">movement</TOKEN>
+<TOKEN id="token-13-45" pos="word" morph="none" start_char="1981" end_char="1985">named</TOKEN>
+<TOKEN id="token-13-46" pos="word" morph="none" start_char="1987" end_char="1991">after</TOKEN>
+<TOKEN id="token-13-47" pos="word" morph="none" start_char="1993" end_char="1995">him</TOKEN>
+<TOKEN id="token-13-48" pos="punct" morph="none" start_char="1996" end_char="1996">.</TOKEN>
+</SEG>
+<SEG id="segment-14" start_char="1999" end_char="2131">
+<ORIGINAL_TEXT>As Nicaraguans, we cant keep living in war, said Ortega supporter Norman Ortiz, referring to the nations history of bloody conflicts.</ORIGINAL_TEXT>
+<TOKEN id="token-14-0" pos="word" morph="none" start_char="1999" end_char="2000">As</TOKEN>
+<TOKEN id="token-14-1" pos="word" morph="none" start_char="2002" end_char="2012">Nicaraguans</TOKEN>
+<TOKEN id="token-14-2" pos="punct" morph="none" start_char="2013" end_char="2013">,</TOKEN>
+<TOKEN id="token-14-3" pos="word" morph="none" start_char="2015" end_char="2016">we</TOKEN>
+<TOKEN id="token-14-4" pos="word" morph="none" start_char="2018" end_char="2021">cant</TOKEN>
+<TOKEN id="token-14-5" pos="word" morph="none" start_char="2023" end_char="2026">keep</TOKEN>
+<TOKEN id="token-14-6" pos="word" morph="none" start_char="2028" end_char="2033">living</TOKEN>
+<TOKEN id="token-14-7" pos="word" morph="none" start_char="2035" end_char="2036">in</TOKEN>
+<TOKEN id="token-14-8" pos="word" morph="none" start_char="2038" end_char="2040">war</TOKEN>
+<TOKEN id="token-14-9" pos="punct" morph="none" start_char="2041" end_char="2041">,</TOKEN>
+<TOKEN id="token-14-10" pos="word" morph="none" start_char="2043" end_char="2046">said</TOKEN>
+<TOKEN id="token-14-11" pos="word" morph="none" start_char="2048" end_char="2053">Ortega</TOKEN>
+<TOKEN id="token-14-12" pos="word" morph="none" start_char="2055" end_char="2063">supporter</TOKEN>
+<TOKEN id="token-14-13" pos="word" morph="none" start_char="2065" end_char="2070">Norman</TOKEN>
+<TOKEN id="token-14-14" pos="word" morph="none" start_char="2072" end_char="2076">Ortiz</TOKEN>
+<TOKEN id="token-14-15" pos="punct" morph="none" start_char="2077" end_char="2077">,</TOKEN>
+<TOKEN id="token-14-16" pos="word" morph="none" start_char="2079" end_char="2087">referring</TOKEN>
+<TOKEN id="token-14-17" pos="word" morph="none" start_char="2089" end_char="2090">to</TOKEN>
+<TOKEN id="token-14-18" pos="word" morph="none" start_char="2092" end_char="2094">the</TOKEN>
+<TOKEN id="token-14-19" pos="word" morph="none" start_char="2096" end_char="2102">nations</TOKEN>
+<TOKEN id="token-14-20" pos="word" morph="none" start_char="2104" end_char="2110">history</TOKEN>
+<TOKEN id="token-14-21" pos="word" morph="none" start_char="2112" end_char="2113">of</TOKEN>
+<TOKEN id="token-14-22" pos="word" morph="none" start_char="2115" end_char="2120">bloody</TOKEN>
+<TOKEN id="token-14-23" pos="word" morph="none" start_char="2122" end_char="2130">conflicts</TOKEN>
+<TOKEN id="token-14-24" pos="punct" morph="none" start_char="2131" end_char="2131">.</TOKEN>
+</SEG>
+<SEG id="segment-15" start_char="2134" end_char="2298">
+<ORIGINAL_TEXT>Cuba and Venezuelas foreign ministers, who reject external interference in the country, supported Ortega at the event, describing the protests as attempts at a coup.</ORIGINAL_TEXT>
+<TOKEN id="token-15-0" pos="word" morph="none" start_char="2134" end_char="2137">Cuba</TOKEN>
+<TOKEN id="token-15-1" pos="word" morph="none" start_char="2139" end_char="2141">and</TOKEN>
+<TOKEN id="token-15-2" pos="word" morph="none" start_char="2143" end_char="2152">Venezuelas</TOKEN>
+<TOKEN id="token-15-3" pos="word" morph="none" start_char="2154" end_char="2160">foreign</TOKEN>
+<TOKEN id="token-15-4" pos="word" morph="none" start_char="2162" end_char="2170">ministers</TOKEN>
+<TOKEN id="token-15-5" pos="punct" morph="none" start_char="2171" end_char="2171">,</TOKEN>
+<TOKEN id="token-15-6" pos="word" morph="none" start_char="2173" end_char="2175">who</TOKEN>
+<TOKEN id="token-15-7" pos="word" morph="none" start_char="2177" end_char="2182">reject</TOKEN>
+<TOKEN id="token-15-8" pos="word" morph="none" start_char="2184" end_char="2191">external</TOKEN>
+<TOKEN id="token-15-9" pos="word" morph="none" start_char="2193" end_char="2204">interference</TOKEN>
+<TOKEN id="token-15-10" pos="word" morph="none" start_char="2206" end_char="2207">in</TOKEN>
+<TOKEN id="token-15-11" pos="word" morph="none" start_char="2209" end_char="2211">the</TOKEN>
+<TOKEN id="token-15-12" pos="word" morph="none" start_char="2213" end_char="2219">country</TOKEN>
+<TOKEN id="token-15-13" pos="punct" morph="none" start_char="2220" end_char="2220">,</TOKEN>
+<TOKEN id="token-15-14" pos="word" morph="none" start_char="2222" end_char="2230">supported</TOKEN>
+<TOKEN id="token-15-15" pos="word" morph="none" start_char="2232" end_char="2237">Ortega</TOKEN>
+<TOKEN id="token-15-16" pos="word" morph="none" start_char="2239" end_char="2240">at</TOKEN>
+<TOKEN id="token-15-17" pos="word" morph="none" start_char="2242" end_char="2244">the</TOKEN>
+<TOKEN id="token-15-18" pos="word" morph="none" start_char="2246" end_char="2250">event</TOKEN>
+<TOKEN id="token-15-19" pos="punct" morph="none" start_char="2251" end_char="2251">,</TOKEN>
+<TOKEN id="token-15-20" pos="word" morph="none" start_char="2253" end_char="2262">describing</TOKEN>
+<TOKEN id="token-15-21" pos="word" morph="none" start_char="2264" end_char="2266">the</TOKEN>
+<TOKEN id="token-15-22" pos="word" morph="none" start_char="2268" end_char="2275">protests</TOKEN>
+<TOKEN id="token-15-23" pos="word" morph="none" start_char="2277" end_char="2278">as</TOKEN>
+<TOKEN id="token-15-24" pos="word" morph="none" start_char="2280" end_char="2287">attempts</TOKEN>
+<TOKEN id="token-15-25" pos="word" morph="none" start_char="2289" end_char="2290">at</TOKEN>
+<TOKEN id="token-15-26" pos="word" morph="none" start_char="2292" end_char="2292">a</TOKEN>
+<TOKEN id="token-15-27" pos="word" morph="none" start_char="2294" end_char="2297">coup</TOKEN>
+<TOKEN id="token-15-28" pos="punct" morph="none" start_char="2298" end_char="2298">.</TOKEN>
+</SEG>
+<SEG id="segment-16" start_char="2301" end_char="2542">
+<ORIGINAL_TEXT>Since last weekend, forces loyal to Ortega beat back protesters in Managua and the nearby city of Masaya, a legendary revolutionary bastion from which Sandinista rebels launched their final attack against right-wing dictator Anastasio Somoza.</ORIGINAL_TEXT>
+<TOKEN id="token-16-0" pos="word" morph="none" start_char="2301" end_char="2305">Since</TOKEN>
+<TOKEN id="token-16-1" pos="word" morph="none" start_char="2307" end_char="2310">last</TOKEN>
+<TOKEN id="token-16-2" pos="word" morph="none" start_char="2312" end_char="2318">weekend</TOKEN>
+<TOKEN id="token-16-3" pos="punct" morph="none" start_char="2319" end_char="2319">,</TOKEN>
+<TOKEN id="token-16-4" pos="word" morph="none" start_char="2321" end_char="2326">forces</TOKEN>
+<TOKEN id="token-16-5" pos="word" morph="none" start_char="2328" end_char="2332">loyal</TOKEN>
+<TOKEN id="token-16-6" pos="word" morph="none" start_char="2334" end_char="2335">to</TOKEN>
+<TOKEN id="token-16-7" pos="word" morph="none" start_char="2337" end_char="2342">Ortega</TOKEN>
+<TOKEN id="token-16-8" pos="word" morph="none" start_char="2344" end_char="2347">beat</TOKEN>
+<TOKEN id="token-16-9" pos="word" morph="none" start_char="2349" end_char="2352">back</TOKEN>
+<TOKEN id="token-16-10" pos="word" morph="none" start_char="2354" end_char="2363">protesters</TOKEN>
+<TOKEN id="token-16-11" pos="word" morph="none" start_char="2365" end_char="2366">in</TOKEN>
+<TOKEN id="token-16-12" pos="word" morph="none" start_char="2368" end_char="2374">Managua</TOKEN>
+<TOKEN id="token-16-13" pos="word" morph="none" start_char="2376" end_char="2378">and</TOKEN>
+<TOKEN id="token-16-14" pos="word" morph="none" start_char="2380" end_char="2382">the</TOKEN>
+<TOKEN id="token-16-15" pos="word" morph="none" start_char="2384" end_char="2389">nearby</TOKEN>
+<TOKEN id="token-16-16" pos="word" morph="none" start_char="2391" end_char="2394">city</TOKEN>
+<TOKEN id="token-16-17" pos="word" morph="none" start_char="2396" end_char="2397">of</TOKEN>
+<TOKEN id="token-16-18" pos="word" morph="none" start_char="2399" end_char="2404">Masaya</TOKEN>
+<TOKEN id="token-16-19" pos="punct" morph="none" start_char="2405" end_char="2405">,</TOKEN>
+<TOKEN id="token-16-20" pos="word" morph="none" start_char="2407" end_char="2407">a</TOKEN>
+<TOKEN id="token-16-21" pos="word" morph="none" start_char="2409" end_char="2417">legendary</TOKEN>
+<TOKEN id="token-16-22" pos="word" morph="none" start_char="2419" end_char="2431">revolutionary</TOKEN>
+<TOKEN id="token-16-23" pos="word" morph="none" start_char="2433" end_char="2439">bastion</TOKEN>
+<TOKEN id="token-16-24" pos="word" morph="none" start_char="2441" end_char="2444">from</TOKEN>
+<TOKEN id="token-16-25" pos="word" morph="none" start_char="2446" end_char="2450">which</TOKEN>
+<TOKEN id="token-16-26" pos="word" morph="none" start_char="2452" end_char="2461">Sandinista</TOKEN>
+<TOKEN id="token-16-27" pos="word" morph="none" start_char="2463" end_char="2468">rebels</TOKEN>
+<TOKEN id="token-16-28" pos="word" morph="none" start_char="2470" end_char="2477">launched</TOKEN>
+<TOKEN id="token-16-29" pos="word" morph="none" start_char="2479" end_char="2483">their</TOKEN>
+<TOKEN id="token-16-30" pos="word" morph="none" start_char="2485" end_char="2489">final</TOKEN>
+<TOKEN id="token-16-31" pos="word" morph="none" start_char="2491" end_char="2496">attack</TOKEN>
+<TOKEN id="token-16-32" pos="word" morph="none" start_char="2498" end_char="2504">against</TOKEN>
+<TOKEN id="token-16-33" pos="unknown" morph="none" start_char="2506" end_char="2515">right-wing</TOKEN>
+<TOKEN id="token-16-34" pos="word" morph="none" start_char="2517" end_char="2524">dictator</TOKEN>
+<TOKEN id="token-16-35" pos="word" morph="none" start_char="2526" end_char="2534">Anastasio</TOKEN>
+<TOKEN id="token-16-36" pos="word" morph="none" start_char="2536" end_char="2541">Somoza</TOKEN>
+<TOKEN id="token-16-37" pos="punct" morph="none" start_char="2542" end_char="2542">.</TOKEN>
+</SEG>
+<SEG id="segment-17" start_char="2545" end_char="2701">
+<ORIGINAL_TEXT>The unrest began in April, when Ortega proposed reducing pension benefits to cover a budget shortfall, and quickly spiraled to encompass a range of concerns.</ORIGINAL_TEXT>
+<TOKEN id="token-17-0" pos="word" morph="none" start_char="2545" end_char="2547">The</TOKEN>
+<TOKEN id="token-17-1" pos="word" morph="none" start_char="2549" end_char="2554">unrest</TOKEN>
+<TOKEN id="token-17-2" pos="word" morph="none" start_char="2556" end_char="2560">began</TOKEN>
+<TOKEN id="token-17-3" pos="word" morph="none" start_char="2562" end_char="2563">in</TOKEN>
+<TOKEN id="token-17-4" pos="word" morph="none" start_char="2565" end_char="2569">April</TOKEN>
+<TOKEN id="token-17-5" pos="punct" morph="none" start_char="2570" end_char="2570">,</TOKEN>
+<TOKEN id="token-17-6" pos="word" morph="none" start_char="2572" end_char="2575">when</TOKEN>
+<TOKEN id="token-17-7" pos="word" morph="none" start_char="2577" end_char="2582">Ortega</TOKEN>
+<TOKEN id="token-17-8" pos="word" morph="none" start_char="2584" end_char="2591">proposed</TOKEN>
+<TOKEN id="token-17-9" pos="word" morph="none" start_char="2593" end_char="2600">reducing</TOKEN>
+<TOKEN id="token-17-10" pos="word" morph="none" start_char="2602" end_char="2608">pension</TOKEN>
+<TOKEN id="token-17-11" pos="word" morph="none" start_char="2610" end_char="2617">benefits</TOKEN>
+<TOKEN id="token-17-12" pos="word" morph="none" start_char="2619" end_char="2620">to</TOKEN>
+<TOKEN id="token-17-13" pos="word" morph="none" start_char="2622" end_char="2626">cover</TOKEN>
+<TOKEN id="token-17-14" pos="word" morph="none" start_char="2628" end_char="2628">a</TOKEN>
+<TOKEN id="token-17-15" pos="word" morph="none" start_char="2630" end_char="2635">budget</TOKEN>
+<TOKEN id="token-17-16" pos="word" morph="none" start_char="2637" end_char="2645">shortfall</TOKEN>
+<TOKEN id="token-17-17" pos="punct" morph="none" start_char="2646" end_char="2646">,</TOKEN>
+<TOKEN id="token-17-18" pos="word" morph="none" start_char="2648" end_char="2650">and</TOKEN>
+<TOKEN id="token-17-19" pos="word" morph="none" start_char="2652" end_char="2658">quickly</TOKEN>
+<TOKEN id="token-17-20" pos="word" morph="none" start_char="2660" end_char="2667">spiraled</TOKEN>
+<TOKEN id="token-17-21" pos="word" morph="none" start_char="2669" end_char="2670">to</TOKEN>
+<TOKEN id="token-17-22" pos="word" morph="none" start_char="2672" end_char="2680">encompass</TOKEN>
+<TOKEN id="token-17-23" pos="word" morph="none" start_char="2682" end_char="2682">a</TOKEN>
+<TOKEN id="token-17-24" pos="word" morph="none" start_char="2684" end_char="2688">range</TOKEN>
+<TOKEN id="token-17-25" pos="word" morph="none" start_char="2690" end_char="2691">of</TOKEN>
+<TOKEN id="token-17-26" pos="word" morph="none" start_char="2693" end_char="2700">concerns</TOKEN>
+<TOKEN id="token-17-27" pos="punct" morph="none" start_char="2701" end_char="2701">.</TOKEN>
+</SEG>
+<SEG id="segment-18" start_char="2704" end_char="2955">
+<ORIGINAL_TEXT>Protesters condemn what they describe as the governments control of the media, electoral fraud, manipulation of the justice system and corruption, as well as Ortegas family dictatorship running the country with his wife, Vice President Rosario Murillo.</ORIGINAL_TEXT>
+<TOKEN id="token-18-0" pos="word" morph="none" start_char="2704" end_char="2713">Protesters</TOKEN>
+<TOKEN id="token-18-1" pos="word" morph="none" start_char="2715" end_char="2721">condemn</TOKEN>
+<TOKEN id="token-18-2" pos="word" morph="none" start_char="2723" end_char="2726">what</TOKEN>
+<TOKEN id="token-18-3" pos="word" morph="none" start_char="2728" end_char="2731">they</TOKEN>
+<TOKEN id="token-18-4" pos="word" morph="none" start_char="2733" end_char="2740">describe</TOKEN>
+<TOKEN id="token-18-5" pos="word" morph="none" start_char="2742" end_char="2743">as</TOKEN>
+<TOKEN id="token-18-6" pos="word" morph="none" start_char="2745" end_char="2747">the</TOKEN>
+<TOKEN id="token-18-7" pos="word" morph="none" start_char="2749" end_char="2759">governments</TOKEN>
+<TOKEN id="token-18-8" pos="word" morph="none" start_char="2761" end_char="2767">control</TOKEN>
+<TOKEN id="token-18-9" pos="word" morph="none" start_char="2769" end_char="2770">of</TOKEN>
+<TOKEN id="token-18-10" pos="word" morph="none" start_char="2772" end_char="2774">the</TOKEN>
+<TOKEN id="token-18-11" pos="word" morph="none" start_char="2776" end_char="2780">media</TOKEN>
+<TOKEN id="token-18-12" pos="punct" morph="none" start_char="2781" end_char="2781">,</TOKEN>
+<TOKEN id="token-18-13" pos="word" morph="none" start_char="2783" end_char="2791">electoral</TOKEN>
+<TOKEN id="token-18-14" pos="word" morph="none" start_char="2793" end_char="2797">fraud</TOKEN>
+<TOKEN id="token-18-15" pos="punct" morph="none" start_char="2798" end_char="2798">,</TOKEN>
+<TOKEN id="token-18-16" pos="word" morph="none" start_char="2800" end_char="2811">manipulation</TOKEN>
+<TOKEN id="token-18-17" pos="word" morph="none" start_char="2813" end_char="2814">of</TOKEN>
+<TOKEN id="token-18-18" pos="word" morph="none" start_char="2816" end_char="2818">the</TOKEN>
+<TOKEN id="token-18-19" pos="word" morph="none" start_char="2820" end_char="2826">justice</TOKEN>
+<TOKEN id="token-18-20" pos="word" morph="none" start_char="2828" end_char="2833">system</TOKEN>
+<TOKEN id="token-18-21" pos="word" morph="none" start_char="2835" end_char="2837">and</TOKEN>
+<TOKEN id="token-18-22" pos="word" morph="none" start_char="2839" end_char="2848">corruption</TOKEN>
+<TOKEN id="token-18-23" pos="punct" morph="none" start_char="2849" end_char="2849">,</TOKEN>
+<TOKEN id="token-18-24" pos="word" morph="none" start_char="2851" end_char="2852">as</TOKEN>
+<TOKEN id="token-18-25" pos="word" morph="none" start_char="2854" end_char="2857">well</TOKEN>
+<TOKEN id="token-18-26" pos="word" morph="none" start_char="2859" end_char="2860">as</TOKEN>
+<TOKEN id="token-18-27" pos="word" morph="none" start_char="2862" end_char="2868">Ortegas</TOKEN>
+<TOKEN id="token-18-28" pos="word" morph="none" start_char="2870" end_char="2875">family</TOKEN>
+<TOKEN id="token-18-29" pos="word" morph="none" start_char="2877" end_char="2888">dictatorship</TOKEN>
+<TOKEN id="token-18-30" pos="word" morph="none" start_char="2890" end_char="2896">running</TOKEN>
+<TOKEN id="token-18-31" pos="word" morph="none" start_char="2898" end_char="2900">the</TOKEN>
+<TOKEN id="token-18-32" pos="word" morph="none" start_char="2902" end_char="2908">country</TOKEN>
+<TOKEN id="token-18-33" pos="word" morph="none" start_char="2910" end_char="2913">with</TOKEN>
+<TOKEN id="token-18-34" pos="word" morph="none" start_char="2915" end_char="2917">his</TOKEN>
+<TOKEN id="token-18-35" pos="word" morph="none" start_char="2919" end_char="2922">wife</TOKEN>
+<TOKEN id="token-18-36" pos="punct" morph="none" start_char="2923" end_char="2923">,</TOKEN>
+<TOKEN id="token-18-37" pos="word" morph="none" start_char="2925" end_char="2928">Vice</TOKEN>
+<TOKEN id="token-18-38" pos="word" morph="none" start_char="2930" end_char="2938">President</TOKEN>
+<TOKEN id="token-18-39" pos="word" morph="none" start_char="2940" end_char="2946">Rosario</TOKEN>
+<TOKEN id="token-18-40" pos="word" morph="none" start_char="2948" end_char="2954">Murillo</TOKEN>
+<TOKEN id="token-18-41" pos="punct" morph="none" start_char="2955" end_char="2955">.</TOKEN>
+</SEG>
+<SEG id="segment-19" start_char="2958" end_char="3157">
+<ORIGINAL_TEXT>The people are no longer with Ortega, said Arlene Correa, speaking earlier on Thursday near the capitals notorious El Chipote jail, one of the main sites Somozas government used to torture dissidents.</ORIGINAL_TEXT>
+<TOKEN id="token-19-0" pos="word" morph="none" start_char="2958" end_char="2960">The</TOKEN>
+<TOKEN id="token-19-1" pos="word" morph="none" start_char="2962" end_char="2967">people</TOKEN>
+<TOKEN id="token-19-2" pos="word" morph="none" start_char="2969" end_char="2971">are</TOKEN>
+<TOKEN id="token-19-3" pos="word" morph="none" start_char="2973" end_char="2974">no</TOKEN>
+<TOKEN id="token-19-4" pos="word" morph="none" start_char="2976" end_char="2981">longer</TOKEN>
+<TOKEN id="token-19-5" pos="word" morph="none" start_char="2983" end_char="2986">with</TOKEN>
+<TOKEN id="token-19-6" pos="word" morph="none" start_char="2988" end_char="2993">Ortega</TOKEN>
+<TOKEN id="token-19-7" pos="punct" morph="none" start_char="2994" end_char="2994">,</TOKEN>
+<TOKEN id="token-19-8" pos="word" morph="none" start_char="2996" end_char="2999">said</TOKEN>
+<TOKEN id="token-19-9" pos="word" morph="none" start_char="3001" end_char="3006">Arlene</TOKEN>
+<TOKEN id="token-19-10" pos="word" morph="none" start_char="3008" end_char="3013">Correa</TOKEN>
+<TOKEN id="token-19-11" pos="punct" morph="none" start_char="3014" end_char="3014">,</TOKEN>
+<TOKEN id="token-19-12" pos="word" morph="none" start_char="3016" end_char="3023">speaking</TOKEN>
+<TOKEN id="token-19-13" pos="word" morph="none" start_char="3025" end_char="3031">earlier</TOKEN>
+<TOKEN id="token-19-14" pos="word" morph="none" start_char="3033" end_char="3034">on</TOKEN>
+<TOKEN id="token-19-15" pos="word" morph="none" start_char="3036" end_char="3043">Thursday</TOKEN>
+<TOKEN id="token-19-16" pos="word" morph="none" start_char="3045" end_char="3048">near</TOKEN>
+<TOKEN id="token-19-17" pos="word" morph="none" start_char="3050" end_char="3052">the</TOKEN>
+<TOKEN id="token-19-18" pos="word" morph="none" start_char="3054" end_char="3061">capitals</TOKEN>
+<TOKEN id="token-19-19" pos="word" morph="none" start_char="3063" end_char="3071">notorious</TOKEN>
+<TOKEN id="token-19-20" pos="word" morph="none" start_char="3073" end_char="3074">El</TOKEN>
+<TOKEN id="token-19-21" pos="word" morph="none" start_char="3076" end_char="3082">Chipote</TOKEN>
+<TOKEN id="token-19-22" pos="word" morph="none" start_char="3084" end_char="3087">jail</TOKEN>
+<TOKEN id="token-19-23" pos="punct" morph="none" start_char="3088" end_char="3088">,</TOKEN>
+<TOKEN id="token-19-24" pos="word" morph="none" start_char="3090" end_char="3092">one</TOKEN>
+<TOKEN id="token-19-25" pos="word" morph="none" start_char="3094" end_char="3095">of</TOKEN>
+<TOKEN id="token-19-26" pos="word" morph="none" start_char="3097" end_char="3099">the</TOKEN>
+<TOKEN id="token-19-27" pos="word" morph="none" start_char="3101" end_char="3104">main</TOKEN>
+<TOKEN id="token-19-28" pos="word" morph="none" start_char="3106" end_char="3110">sites</TOKEN>
+<TOKEN id="token-19-29" pos="word" morph="none" start_char="3112" end_char="3118">Somozas</TOKEN>
+<TOKEN id="token-19-30" pos="word" morph="none" start_char="3120" end_char="3129">government</TOKEN>
+<TOKEN id="token-19-31" pos="word" morph="none" start_char="3131" end_char="3134">used</TOKEN>
+<TOKEN id="token-19-32" pos="word" morph="none" start_char="3136" end_char="3137">to</TOKEN>
+<TOKEN id="token-19-33" pos="word" morph="none" start_char="3139" end_char="3145">torture</TOKEN>
+<TOKEN id="token-19-34" pos="word" morph="none" start_char="3147" end_char="3156">dissidents</TOKEN>
+<TOKEN id="token-19-35" pos="punct" morph="none" start_char="3157" end_char="3157">.</TOKEN>
+</SEG>
+<SEG id="segment-20" start_char="3161" end_char="3180">
+<ORIGINAL_TEXT>Slideshow (9 Images)</ORIGINAL_TEXT>
+<TOKEN id="token-20-0" pos="word" morph="none" start_char="3161" end_char="3169">Slideshow</TOKEN>
+<TOKEN id="token-20-1" pos="punct" morph="none" start_char="3171" end_char="3171">(</TOKEN>
+<TOKEN id="token-20-2" pos="word" morph="none" start_char="3172" end_char="3172">9</TOKEN>
+<TOKEN id="token-20-3" pos="word" morph="none" start_char="3174" end_char="3179">Images</TOKEN>
+<TOKEN id="token-20-4" pos="punct" morph="none" start_char="3180" end_char="3180">)</TOKEN>
+</SEG>
+<SEG id="segment-21" start_char="3183" end_char="3383">
+<ORIGINAL_TEXT>He seems more and more like Somoza with the violations of human rights and killings, said Correa, whose father has been accused of supporting the protests and was detained earlier this week in Chipote.</ORIGINAL_TEXT>
+<TOKEN id="token-21-0" pos="word" morph="none" start_char="3183" end_char="3184">He</TOKEN>
+<TOKEN id="token-21-1" pos="word" morph="none" start_char="3186" end_char="3190">seems</TOKEN>
+<TOKEN id="token-21-2" pos="word" morph="none" start_char="3192" end_char="3195">more</TOKEN>
+<TOKEN id="token-21-3" pos="word" morph="none" start_char="3197" end_char="3199">and</TOKEN>
+<TOKEN id="token-21-4" pos="word" morph="none" start_char="3201" end_char="3204">more</TOKEN>
+<TOKEN id="token-21-5" pos="word" morph="none" start_char="3206" end_char="3209">like</TOKEN>
+<TOKEN id="token-21-6" pos="word" morph="none" start_char="3211" end_char="3216">Somoza</TOKEN>
+<TOKEN id="token-21-7" pos="word" morph="none" start_char="3218" end_char="3221">with</TOKEN>
+<TOKEN id="token-21-8" pos="word" morph="none" start_char="3223" end_char="3225">the</TOKEN>
+<TOKEN id="token-21-9" pos="word" morph="none" start_char="3227" end_char="3236">violations</TOKEN>
+<TOKEN id="token-21-10" pos="word" morph="none" start_char="3238" end_char="3239">of</TOKEN>
+<TOKEN id="token-21-11" pos="word" morph="none" start_char="3241" end_char="3245">human</TOKEN>
+<TOKEN id="token-21-12" pos="word" morph="none" start_char="3247" end_char="3252">rights</TOKEN>
+<TOKEN id="token-21-13" pos="word" morph="none" start_char="3254" end_char="3256">and</TOKEN>
+<TOKEN id="token-21-14" pos="word" morph="none" start_char="3258" end_char="3265">killings</TOKEN>
+<TOKEN id="token-21-15" pos="punct" morph="none" start_char="3266" end_char="3266">,</TOKEN>
+<TOKEN id="token-21-16" pos="word" morph="none" start_char="3268" end_char="3271">said</TOKEN>
+<TOKEN id="token-21-17" pos="word" morph="none" start_char="3273" end_char="3278">Correa</TOKEN>
+<TOKEN id="token-21-18" pos="punct" morph="none" start_char="3279" end_char="3279">,</TOKEN>
+<TOKEN id="token-21-19" pos="word" morph="none" start_char="3281" end_char="3285">whose</TOKEN>
+<TOKEN id="token-21-20" pos="word" morph="none" start_char="3287" end_char="3292">father</TOKEN>
+<TOKEN id="token-21-21" pos="word" morph="none" start_char="3294" end_char="3296">has</TOKEN>
+<TOKEN id="token-21-22" pos="word" morph="none" start_char="3298" end_char="3301">been</TOKEN>
+<TOKEN id="token-21-23" pos="word" morph="none" start_char="3303" end_char="3309">accused</TOKEN>
+<TOKEN id="token-21-24" pos="word" morph="none" start_char="3311" end_char="3312">of</TOKEN>
+<TOKEN id="token-21-25" pos="word" morph="none" start_char="3314" end_char="3323">supporting</TOKEN>
+<TOKEN id="token-21-26" pos="word" morph="none" start_char="3325" end_char="3327">the</TOKEN>
+<TOKEN id="token-21-27" pos="word" morph="none" start_char="3329" end_char="3336">protests</TOKEN>
+<TOKEN id="token-21-28" pos="word" morph="none" start_char="3338" end_char="3340">and</TOKEN>
+<TOKEN id="token-21-29" pos="word" morph="none" start_char="3342" end_char="3344">was</TOKEN>
+<TOKEN id="token-21-30" pos="word" morph="none" start_char="3346" end_char="3353">detained</TOKEN>
+<TOKEN id="token-21-31" pos="word" morph="none" start_char="3355" end_char="3361">earlier</TOKEN>
+<TOKEN id="token-21-32" pos="word" morph="none" start_char="3363" end_char="3366">this</TOKEN>
+<TOKEN id="token-21-33" pos="word" morph="none" start_char="3368" end_char="3371">week</TOKEN>
+<TOKEN id="token-21-34" pos="word" morph="none" start_char="3373" end_char="3374">in</TOKEN>
+<TOKEN id="token-21-35" pos="word" morph="none" start_char="3376" end_char="3382">Chipote</TOKEN>
+<TOKEN id="token-21-36" pos="punct" morph="none" start_char="3383" end_char="3383">.</TOKEN>
+</SEG>
+<SEG id="segment-22" start_char="3386" end_char="3535">
+<ORIGINAL_TEXT>Ortega won re-election in late 2016 with 72 percent of the vote, but a poll in May by CID Gallup showed his approval ratings had fallen to 29 percent.</ORIGINAL_TEXT>
+<TOKEN id="token-22-0" pos="word" morph="none" start_char="3386" end_char="3391">Ortega</TOKEN>
+<TOKEN id="token-22-1" pos="word" morph="none" start_char="3393" end_char="3395">won</TOKEN>
+<TOKEN id="token-22-2" pos="unknown" morph="none" start_char="3397" end_char="3407">re-election</TOKEN>
+<TOKEN id="token-22-3" pos="word" morph="none" start_char="3409" end_char="3410">in</TOKEN>
+<TOKEN id="token-22-4" pos="word" morph="none" start_char="3412" end_char="3415">late</TOKEN>
+<TOKEN id="token-22-5" pos="word" morph="none" start_char="3417" end_char="3420">2016</TOKEN>
+<TOKEN id="token-22-6" pos="word" morph="none" start_char="3422" end_char="3425">with</TOKEN>
+<TOKEN id="token-22-7" pos="word" morph="none" start_char="3427" end_char="3428">72</TOKEN>
+<TOKEN id="token-22-8" pos="word" morph="none" start_char="3430" end_char="3436">percent</TOKEN>
+<TOKEN id="token-22-9" pos="word" morph="none" start_char="3438" end_char="3439">of</TOKEN>
+<TOKEN id="token-22-10" pos="word" morph="none" start_char="3441" end_char="3443">the</TOKEN>
+<TOKEN id="token-22-11" pos="word" morph="none" start_char="3445" end_char="3448">vote</TOKEN>
+<TOKEN id="token-22-12" pos="punct" morph="none" start_char="3449" end_char="3449">,</TOKEN>
+<TOKEN id="token-22-13" pos="word" morph="none" start_char="3451" end_char="3453">but</TOKEN>
+<TOKEN id="token-22-14" pos="word" morph="none" start_char="3455" end_char="3455">a</TOKEN>
+<TOKEN id="token-22-15" pos="word" morph="none" start_char="3457" end_char="3460">poll</TOKEN>
+<TOKEN id="token-22-16" pos="word" morph="none" start_char="3462" end_char="3463">in</TOKEN>
+<TOKEN id="token-22-17" pos="word" morph="none" start_char="3465" end_char="3467">May</TOKEN>
+<TOKEN id="token-22-18" pos="word" morph="none" start_char="3469" end_char="3470">by</TOKEN>
+<TOKEN id="token-22-19" pos="word" morph="none" start_char="3472" end_char="3474">CID</TOKEN>
+<TOKEN id="token-22-20" pos="word" morph="none" start_char="3476" end_char="3481">Gallup</TOKEN>
+<TOKEN id="token-22-21" pos="word" morph="none" start_char="3483" end_char="3488">showed</TOKEN>
+<TOKEN id="token-22-22" pos="word" morph="none" start_char="3490" end_char="3492">his</TOKEN>
+<TOKEN id="token-22-23" pos="word" morph="none" start_char="3494" end_char="3501">approval</TOKEN>
+<TOKEN id="token-22-24" pos="word" morph="none" start_char="3503" end_char="3509">ratings</TOKEN>
+<TOKEN id="token-22-25" pos="word" morph="none" start_char="3511" end_char="3513">had</TOKEN>
+<TOKEN id="token-22-26" pos="word" morph="none" start_char="3515" end_char="3520">fallen</TOKEN>
+<TOKEN id="token-22-27" pos="word" morph="none" start_char="3522" end_char="3523">to</TOKEN>
+<TOKEN id="token-22-28" pos="word" morph="none" start_char="3525" end_char="3526">29</TOKEN>
+<TOKEN id="token-22-29" pos="word" morph="none" start_char="3528" end_char="3534">percent</TOKEN>
+<TOKEN id="token-22-30" pos="punct" morph="none" start_char="3535" end_char="3535">.</TOKEN>
+</SEG>
+<SEG id="segment-23" start_char="3538" end_char="3682">
+<ORIGINAL_TEXT>The country appeared mostly calm on Thursday, despite violent confrontations in recent days and pledges by protesters to plan new demonstrations.</ORIGINAL_TEXT>
+<TOKEN id="token-23-0" pos="word" morph="none" start_char="3538" end_char="3540">The</TOKEN>
+<TOKEN id="token-23-1" pos="word" morph="none" start_char="3542" end_char="3548">country</TOKEN>
+<TOKEN id="token-23-2" pos="word" morph="none" start_char="3550" end_char="3557">appeared</TOKEN>
+<TOKEN id="token-23-3" pos="word" morph="none" start_char="3559" end_char="3564">mostly</TOKEN>
+<TOKEN id="token-23-4" pos="word" morph="none" start_char="3566" end_char="3569">calm</TOKEN>
+<TOKEN id="token-23-5" pos="word" morph="none" start_char="3571" end_char="3572">on</TOKEN>
+<TOKEN id="token-23-6" pos="word" morph="none" start_char="3574" end_char="3581">Thursday</TOKEN>
+<TOKEN id="token-23-7" pos="punct" morph="none" start_char="3582" end_char="3582">,</TOKEN>
+<TOKEN id="token-23-8" pos="word" morph="none" start_char="3584" end_char="3590">despite</TOKEN>
+<TOKEN id="token-23-9" pos="word" morph="none" start_char="3592" end_char="3598">violent</TOKEN>
+<TOKEN id="token-23-10" pos="word" morph="none" start_char="3600" end_char="3613">confrontations</TOKEN>
+<TOKEN id="token-23-11" pos="word" morph="none" start_char="3615" end_char="3616">in</TOKEN>
+<TOKEN id="token-23-12" pos="word" morph="none" start_char="3618" end_char="3623">recent</TOKEN>
+<TOKEN id="token-23-13" pos="word" morph="none" start_char="3625" end_char="3628">days</TOKEN>
+<TOKEN id="token-23-14" pos="word" morph="none" start_char="3630" end_char="3632">and</TOKEN>
+<TOKEN id="token-23-15" pos="word" morph="none" start_char="3634" end_char="3640">pledges</TOKEN>
+<TOKEN id="token-23-16" pos="word" morph="none" start_char="3642" end_char="3643">by</TOKEN>
+<TOKEN id="token-23-17" pos="word" morph="none" start_char="3645" end_char="3654">protesters</TOKEN>
+<TOKEN id="token-23-18" pos="word" morph="none" start_char="3656" end_char="3657">to</TOKEN>
+<TOKEN id="token-23-19" pos="word" morph="none" start_char="3659" end_char="3662">plan</TOKEN>
+<TOKEN id="token-23-20" pos="word" morph="none" start_char="3664" end_char="3666">new</TOKEN>
+<TOKEN id="token-23-21" pos="word" morph="none" start_char="3668" end_char="3681">demonstrations</TOKEN>
+<TOKEN id="token-23-22" pos="punct" morph="none" start_char="3682" end_char="3682">.</TOKEN>
+</SEG>
+</TEXT>
+</DOC>
+</LCTL_TEXT>

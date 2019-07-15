@@ -1,0 +1,2 @@
+user_id	doc_id	sentiment_value	polarity	emotion_value	source	target	kb_id
+12345	ENG_NW_007047_20180720_I00263TNI	-1	negative	none	Ent-ENG_NW_007047_20180720_I00263TNI-243	Frame-5c18fedd0000000000000022-285	1000004

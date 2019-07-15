@@ -5,7 +5,7 @@ import os
 lib_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
 sys.path.append(lib_path)
 
-from lib.lorehlt18helper import *
+from lib.lorehlt19helper import *
 
 
 class TestBadGetsubmission(TestCase):
@@ -18,7 +18,7 @@ class TestBadGetsubmission(TestCase):
 
     def test_1_bad_submission(self):
         with self.assertRaises(SystemExit) as cm:
-            self.submission = getsubmission(self.testfile, gravity, filelist="")
+            self.submission = getsubmission(self.testfile, boolean_gravity, filelist="")
         self.assertNotEqual(cm.exception.code, 0)
 
 
@@ -32,5 +32,5 @@ class TestGoodSubmission(TestCase):
 
     def test_2_good_submission(self):
         with self.assertRaises(SystemExit) as cm:
-            self.submission = getsubmission(self.testfile, gravity, filelist="")
+            self.submission = getsubmission(self.testfile, boolean_gravity, filelist="")
         self.assertNotEqual(cm.exception.code, 1)

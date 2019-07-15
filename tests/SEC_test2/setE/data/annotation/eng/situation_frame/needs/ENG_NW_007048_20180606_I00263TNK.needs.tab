@@ -1,0 +1,3 @@
+user_id	doc_id	frame_id	frame_type	need_type	place_id	proxy_status	need_status	urgency_status	resolution_status	reported_by	resolved_by	description	kb_id
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-133	need	med	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	current	False	insufficient	Ent-ENG_NW_007048_20180606_I00263TNK-113	none	over 1,000 have been injured	1000001
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-171	need	food	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	past	False	insufficient	Ent-ENG_NW_007048_20180606_I00263TNK-113	none	opened fire on a Mothers Day march	1000001

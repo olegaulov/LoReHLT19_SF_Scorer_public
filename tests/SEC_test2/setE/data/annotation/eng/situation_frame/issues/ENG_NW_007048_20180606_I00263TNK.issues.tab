@@ -1,0 +1,9 @@
+user_id	doc_id	frame_id	frame_type	issue_type	place_id	proxy_status	issue_status	description	kb_id
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-127	issue	crimeviolence	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	not_current	on the brink of a still graver and bloodier conflict	1000001
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-143	issue	regimechange	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	not_current	Sandinistas overthrew the dictator Anastasio Somoza in 1979	1000001
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-159	issue	regimechange	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	not_current	he stepped down at the electorates behest in 1990	1000002
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-165	issue	regimechange	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	not_current	Sixteen years later he won power again	1000003
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-181	issue	crimeviolence	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	current	violence has been overwhelmingly on one side	1000002
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-187	issue	regimechange	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	current	Elections since 2008 have been rife with irregularities	1000004
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-193	issue	regimechange	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	not_current	 called for the presidential election to be brought forward from 2021	1000005
+314	ENG_NW_007048_20180606_I00263TNK	Frame-5c18fede0000000000000025-199	issue	crimeviolence	Ent-ENG_NW_007048_20180606_I00263TNK-105	False	current	inhuman violence on Mothers Day	1000003

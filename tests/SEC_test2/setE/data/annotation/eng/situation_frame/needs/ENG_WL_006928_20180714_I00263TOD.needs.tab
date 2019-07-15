@@ -1,0 +1,5 @@
+user_id	doc_id	frame_id	frame_type	need_type	place_id	proxy_status	need_status	urgency_status	resolution_status	reported_by	resolved_by	description	kb_id
+314	ENG_WL_006928_20180714_I00263TOD	Frame-5c18fefa0000000000000257-359	need	med	Ent-ENG_WL_006928_20180714_I00263TOD-283	False	current	False	insufficient	Ent-ENG_WL_006928_20180714_I00263TOD-297	none	over 1,500 have been injured	1000001
+314	ENG_WL_006928_20180714_I00263TOD	Frame-5c18fefa0000000000000257-375	need	food	Ent-ENG_WL_006928_20180714_I00263TOD-283	False	current	False	insufficient	Ent-ENG_WL_006928_20180714_I00263TOD-295	none	possible acts of torture	1000001
+314	ENG_WL_006928_20180714_I00263TOD	Frame-5c18fefa0000000000000257-391	need	infra	Ent-ENG_WL_006928_20180714_I00263TOD-283	False	current	False	insufficient	Ent-ENG_WL_006928_20180714_I00263TOD-295	none	the violation of the right to health and medical care	1000001
+314	ENG_WL_006928_20180714_I00263TOD	Frame-5c18fefa0000000000000257-419	need	search	Ent-ENG_WL_006928_20180714_I00263TOD-283	False	current	False	insufficient	Ent-ENG_WL_006928_20180714_I00263TOD-295	none	injuries that have occurred in this context	1000001

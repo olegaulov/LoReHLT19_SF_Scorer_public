@@ -1,6 +1,6 @@
 __author__ = "Oleg Aulov (oleg.aulov@nist.gov), Marion Le Bras (marion.lebras@nist.gov)"
-__version__ = "Development: 0.9"
-__date__ = "07/02/2019"
+__version__ = "Development: 0.9.5"
+__date__ = "07/15/2019"
 
 import configparser
 import csv
@@ -18,8 +18,10 @@ from matplotlib.backends.backend_pdf import PdfPages
 from pandas.io.json import json_normalize
 from sklearn.metrics import average_precision_score, recall_score
 
-from lib.sec_helper import get_SEC_ref, SEC_scoring
+from lib.sec_helper import get_SEC_ref, SEC_scoring, nil_mapper
 
+import random
+random.seed(a=1)
 
 matplotlib.use("Agg")
 
@@ -84,6 +86,8 @@ def getTextReference(path, gravity):
             quoting=csv.QUOTE_NONE,
             dtype={"doc_id": object, "kb_id": object},
         )
+        myannotator = random.choice(df.user_id.unique())
+        df = df[df.user_id == myannotator]
         list_.append(df)
     if not list_:
         sys.exit("Text reference list is empty. Please check the reference folder and try again.")
@@ -151,7 +155,6 @@ def getTextReference(path, gravity):
     d = {"current": True, "past": False, "future": False, "not_current": False, np.nan: False}
     reference["current"] = reference["status"].map(d)
 
-
     sentiment_df_list = []
     for file_ in sentiment_files:
         df = pd.read_csv(
@@ -166,19 +169,18 @@ def getTextReference(path, gravity):
         sentiment_df_list.append(df)
     all_sentiments_df = pd.concat(sentiment_df_list, axis=0, ignore_index=True)
     # some frame ids are repeated, they need to be grouped
-    grouped = all_sentiments_df.groupby(['doc_id', 'target'])
+    grouped = all_sentiments_df.groupby(["doc_id", "target"])
     grouped_sentiments = grouped.aggregate(lambda x: tuple(x))
     # merge with reference on target<->frame_id
     reference = pd.merge(
         reference,
         grouped_sentiments,
         how="left",
-        left_on=["doc_id", 'frame_id'],
-        right_on=["doc_id", 'target'],
+        left_on=["doc_id", "frame_id"],
+        right_on=["doc_id", "target"],
         suffixes=("", "_sentiment"),
     )
-    # use_new = True  # TODO make this parametrizable
-    reference["sentiments"] = reference["emotion_value"].str.split(',')
+    reference["sentiments"] = reference["emotion_value"].str.split(",")
     reference["gravity"] = reference.apply(gravity, axis=1)
     reference["frame_count"] = 1
     reference = reference[
@@ -208,34 +210,61 @@ def getSpeechReference(path, gravity):
     if not list_:
         print("Speech reference list is empty.")
         return None
-    excelfiles = glob.glob(path + "/speech/*.xlsx")
-
-    if not excelfiles:
-        sys.exit(
-            "Speech reference list is missing the place kb_id mapping file. Please check the reference folder and try again."
-        )
-    placepath = excelfiles[0]
 
     reference = pd.concat(list_)
-    # reference = pd.read_csv(path, index_col=None, header=0, sep='\t', quoting=csv.QUOTE_NONE, dtype={'doc_id': object, 'kb_id': object})
     reference = reference[reference["situation_type"] != "out-of-domain"]
     d = {"Current": True, "Past Only": False, "Future": False, "not_current": False, np.nan: False}
     reference["current"] = reference["situation_status"].map(d)
-    d = {"Urgent": True, "Not Urgent": False, "Unknown": False, np.nan: False}
-    reference["urgent"] = reference["urgency_status"].map(d)
-    d = {"Insufficient/Unknown": True, "Sufficient": False, np.nan: False}
+
+    d = {
+        "1_discomfort": 1,
+        "2_injury": 2,
+        "3_possibledeath": 3,
+        "4_certaindeath": 4,
+        "none": 0,
+        "Severity_Not_Required": 0,
+        np.nan: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        0: 0,
+    }
+    reference["severity"] = reference["severity"].map(d)
+    d = {
+        "1_smallgroup": 1,
+        "2_largegroup": 2,
+        "3_municipality": 3,
+        "4_region": 4,
+        "none": 0,
+        "Scope_Not_Required" : 0,
+        np.nan: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        0: 0,
+    }
+    reference["scope"] = reference["scope"].map(d)
+
+    reference["urgent"] = reference[["scope", "severity"]].apply(
+        lambda x: True if x["scope"] > 1 and x["severity"] > 1 else False, axis=1
+    )
+
+    d = {"Insufficent": True, "Insufficient/Unknown": True, "Sufficient": False, np.nan: False}
     reference["unresolved"] = reference["resolution_status"].map(d)
     reference = reference.rename(
-        columns={"situation_id": "doc_id", "file_id": "frame_id", "situation_type": "type"}
-    )
+        columns={"situation_id": "doc_id", "file_id": "frame_id", "situation_type": "type", "place_id": "kb_id"}
+     )
     reference["frame_count"] = 1
     reference["user_id"] = "Appn1"
-    places = pd.read_excel(placepath, converters={"PLACE": str, "kb_id": str})
-    places["PLACE"] = places["PLACE"].map(lambda x: x if type(x) != str else x.lower())
-    reference["PLACE"] = reference["PLACE"].map(lambda x: x if type(x) != str else x.lower())
-    reference = reference.join(places.set_index("PLACE"), on=["PLACE"])
+    issue_types = ["regimechange", "crimeviolence", "terrorism" ]
+    reference["frame_type"] = reference["type"].apply(lambda x: "issue" if x in issue_types else "need")
+    reference["emotion_value"] = np.NaN
     reference["gravity"] = reference.apply(gravity, axis=1)
-    reference = reference[~reference["PLACE"].isnull()]
+    reference = reference[~reference["kb_id"].isnull()]
+    reference = reference[reference["kb_id"] != "NIL"]
+
     reference = reference[
         [
             "doc_id",
@@ -302,8 +331,10 @@ def getsubmission(filename, gravity, filelist):
     d = {"current": True, "past": False, "future": False, "not_current": False, np.nan: False}
     mysubmission["current"] = mysubmission["Status"].map(d)
 
-    issue_types = ["regimechange", "crimeviolence", "terrorism" ]
-    mysubmission["frame_type"] = mysubmission["Type"].apply(lambda x: "issue" if x in issue_types else "need")
+    issue_types = ["regimechange", "crimeviolence", "terrorism"]
+    mysubmission["frame_type"] = mysubmission["Type"].apply(
+        lambda x: "issue" if x in issue_types else "need"
+    )
 
     mysubmission["gravity"] = mysubmission.apply(gravity, axis=1)
     mysubmission["frame_count"] = 1
@@ -358,33 +389,42 @@ def gain(row):
         return int(config["Gain"]["Low"])
 
 
-def gravity(row, new=False):
+def boolean_gravity(row):
     if row["current"] and row["unresolved"] and row["urgent"]:
         return True
     else:
         return False
 
 
-def advanced_gravity(row):
+def numeric_gravity(row):
     frame_type = row["frame_type"]
-    sentiments = row["sentiments"]
-    
-    gravity = 0. 
-    
-    if frame_type == 'need': 
+    try:
+        sentiments = row["emotion_value"] if not pd.isna(row["emotion_value"]) else []
+    except KeyError:
+        sentiments = []
+        for block in row["SEC"]:
+            if block["Emotion_Anger"]:
+                sentiments.append("anger")
+            if block["Emotion_Fear"]:
+                sentiments.append("fear")
+        sentiments = list(set(sentiments))
+
+    gravity = 0.0
+
+    if frame_type == "need":
         if row["current"] and row["unresolved"] and row["urgent"]:
             gravity += 1
-            if 'fear' in sentiments: 
-                gravity += .2
-            if 'anger' in sentiments:
-                gravity += .2
-            
-    elif frame_type == 'issue':
+            if "fear" in sentiments:
+                gravity += 0.2
+            if "anger" in sentiments:
+                gravity += 0.2
+
+    elif frame_type == "issue":
         if row["current"] and row["urgent"]:
             gravity += 1
             if any(e in ["fear", "anger"] for e in sentiments):
-                gravity += .2
-        
+                gravity += 0.2
+
     return gravity
 
 
@@ -544,27 +584,66 @@ def getreferenceNDCG(reference):
 
 
 PAIRS_TO_MATCH_FRAMES = [
-        (["doc_id", "kb_id", "type"], ["DocumentID", 'Place_KB_ID', "Type"], "EqClass_Type+Place"),
-        (["doc_id", "kb_id", "type", "status"], ["DocumentID", 'Place_KB_ID', "Type", "Status"], "EqClass_Type+Place+Status"),
+    (["doc_id", "kb_id", "type"], ["DocumentID", "Place_KB_ID", "Type"], "EqClass_Type+Place"),
+    (
+        ["doc_id", "kb_id", "type", "status"],
+        ["DocumentID", "Place_KB_ID", "Type", "Status"],
+        "EqClass_Type+Place+Status",
+    ),
 ]
-def genSEC(referenceTable, path_for_sentiments, systemTable, pairs_to_match_frames):
-    
+
+
+def genSEC(
+    referenceTable,
+    path_for_sentiments,
+    systemTable,
+    pairs_to_match_frames,
+    edl_ref=None,
+    edl_subm=None,
+):
+
+    mapping = nil_mapper(edl_subm, edl_ref) if edl_ref and edl_subm else None
+
     sec_ref = get_SEC_ref(path_for_sentiments)
-    scores = [SEC_scoring(referenceTable, sec_ref, systemTable, i, j) for i,j,n in pairs_to_match_frames]
+    scores = [
+        SEC_scoring(referenceTable, sec_ref, systemTable, ref_el=i, sub_el=j, mapping=mapping)
+        for i, j, n in pairs_to_match_frames
+    ]
 
     return scores
 
-def genSEC_results(output_file, referenceTable, path_for_sentiments, systemTable, pairs_to_match_frames=PAIRS_TO_MATCH_FRAMES):
-    
-    scores = genSEC(referenceTable, path_for_sentiments, systemTable, pairs_to_match_frames)
-    header = ["EqClass", "PrecisionPolarity", "RecallPolarity", "F1Polarity", "PrecisionSentiment", "RecallSentiment", "F1Sentiment", "PrecisionEmotion", "RecallEmotion", "F1Emotion"]
-    with open(output_file, 'w') as ofile:
-        ofile.write('\t'.join(header)+ '\n')
-        for a, b in zip(scores, pairs_to_match_frames): 
+
+def genSEC_results(
+    output_file,
+    referenceTable,
+    path_for_sentiments,
+    systemTable,
+    pairs_to_match_frames=PAIRS_TO_MATCH_FRAMES,
+    **kwargs
+):
+
+    scores = genSEC(
+        referenceTable, path_for_sentiments, systemTable, pairs_to_match_frames, **kwargs
+    )
+    header = [
+        "EqClass",
+        "PrecisionPolarity",
+        "RecallPolarity",
+        "F1Polarity",
+        "PrecisionSentiment",
+        "RecallSentiment",
+        "F1Sentiment",
+        "PrecisionEmotion",
+        "RecallEmotion",
+        "F1Emotion",
+    ]
+    with open(output_file, "w") as ofile:
+        ofile.write("\t".join(header) + "\n")
+        for a, b in zip(scores, pairs_to_match_frames):
             # PrecisionPolarity, RecallPolarity, F1Polarity, PrecisionSentiment, RecallSentiment, F1Sentiment, PrecisionEmotion, RecallEmotion, F1Emotion = a
-            # ref_columns, sub_columns = b 
-            ofile.write('\t'.join([b[2]]+[str(e) for e in a])+ '\n')
-            
+            # ref_columns, sub_columns = b
+            ofile.write("\t".join([b[2]] + [str(e) for e in a]) + "\n")
+
 
 def genNDCG(referenceNDCG, systemTable, breakties=None):
     mysystem = (
@@ -712,8 +791,6 @@ def genNDCG_results(filename, systemName, myndcg, k):
     return
 
 
-
-
 def genprecisionN_results(filename, systemName, myprecisionN):
     with open(filename, "w") as precisionN_results_file:
         precisionN_results_file.write("SF Precision at N Scores for Sysyem: " + systemName + "\n")
@@ -723,34 +800,3 @@ def genprecisionN_results(filename, systemName, myprecisionN):
             precisionN_results_file.write("NOTE: No high gravity situations were found\n")
     return
 
-
-def advanced_gravity(row):
-    frame_type = row["frame_type"]
-    try:
-        sentiments = row["emotion_value"] if not pd.isna(row["emotion_value"]) else []
-    except KeyError:
-        sentiments = []
-        for block in row["SEC"]: 
-            if block["Emotion_Anger"]: 
-                sentiments.append("anger")
-            if block["Emotion_Fear"]: 
-                sentiments.append("fear")
-        sentiments = list(set(sentiments))
-            
-    gravity = 0. 
-    
-    if frame_type == 'need': 
-        if row["current"] and row["unresolved"] and row["urgent"]:
-            gravity += 1
-            if 'fear' in sentiments: 
-                gravity += .2
-            if 'anger' in sentiments:
-                gravity += .2
-            
-    elif frame_type == 'issue':
-        if row["current"] and row["urgent"]:
-            gravity += 1
-            if any(e in ["fear", "anger"] for e in sentiments):
-                gravity += .2
-        
-    return gravity
