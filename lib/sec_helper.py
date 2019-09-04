@@ -29,10 +29,14 @@ def preparing_SEC_submission(submission, ref_el, sub_el):
     # first group by
     subm_grouped = submission[sub_el + ["SEC"]].groupby(sub_el)
     list_of_pairs = [[*i, c] for i, b in subm_grouped["SEC"] for a in b.tolist() for c in a]
+
+    if len(list_of_pairs) == 0:
+        return pd.DataFrame()
+
     # flattening subm sentiments: each SEC element now has a row
     # also renaming the columns to match the ref nameing
     flat = pd.DataFrame(list_of_pairs, columns=ref_el + ["sentiments"])
-    sentiment_as_series = flat.apply(lambda r: pd.Series(r["sentiments"]), axis=1)
+    sentiment_as_series = flat.apply(lambda r: pd.Series(r["sentiments"]), axis=1, reduce=True)
     # setting polarity to match reference naming
     sentiment_as_series["polarity"] = sentiment_as_series["Sentiment"].apply(
         lambda x: "positive" if x > 0 else "negative"
@@ -59,15 +63,20 @@ def preparing_SEC_reference(reference, sec_ref, ref_el):
         right_on=["doc_id", "frame_id"],
         suffixes=("_sec", "_ref"),
     )
-    # TODO : drop the row if it wasn't matched to reference table
+    if len(ref_sentiments_with_type) == 0:
+        return pd.DataFrame()
+
     ref_sentiments_with_type["kb_id"] = ref_sentiments_with_type["kb_id_ref"]
     ref_sentiments_with_type["emotion_value"] = ref_sentiments_with_type["emotion_value"].str.split(
         ","
     )
 
     def translate_ref_sentiment(row):
-        if type(row["emotion_value"]) == list:
-            return [e in row["emotion_value"] for e in ("anger", "fear", "joyhappiness")]
+        try:
+            if type(row["emotion_value"]) == list:
+                return [e in row["emotion_value"] for e in ("anger", "fear", "joyhappiness")]
+        except KeyError:
+            pass
         return [False, False, False]
 
     ref_sentiments_with_type["bool_sentiments"] = ref_sentiments_with_type.apply(
@@ -122,7 +131,7 @@ def penalty(row, penalty_factor=0.97, matching_key="matching_ref_sentiments"):
     elif 0.5 < diff <= 1.5:
         return penalty_factor
     else:
-        return penalty_factor ^ 2
+        return penalty_factor ** 2
 
 
 def emotion_matches(row):
@@ -147,11 +156,21 @@ def SEC_scoring(
     ref_el=["doc_id", "kb_id", "type"],
     sub_el=["DocumentID", "Place_KB_ID", "Type"]
 ):
-    if not mapping: 
+    if not mapping:
         mapping = DictWithMissing(dict())
 
     ref_sentiments_with_type = preparing_SEC_reference(reference, sec_ref, ref_el)
+
+    # case where no sentiments in the reference
+    if len(ref_sentiments_with_type) == 0:
+        return 9*[np.NAN]
+
     subm_sentiments_df = preparing_SEC_submission(submission, ref_el, sub_el)
+
+    # case where no sentiments reported by submission
+    if len(subm_sentiments_df) == 0:
+        return 9*[0]
+
     subm_sentiments_df["kb_id"] = subm_sentiments_df["kb_id"].map(mapping)
 
     # from the POV of the submission, get all matching reference FRAMES
@@ -242,6 +261,8 @@ def sub_nil_to_ref(nil_id, ref_df, sub_df):
     concatenated = pd.concat(matching_ref_for_nil_id.tolist())
 
     # this is where the extra condition would go
+    if len(concatenated) == 0:
+        return 'None'
 
     return str(concatenated.iloc[0]["kbid"])
 

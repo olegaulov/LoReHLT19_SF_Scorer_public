@@ -12,6 +12,11 @@ import os
 import sys
 import argparse
 import pandas as pd
+import numpy as np
+import re
+
+from sklearn.metrics import precision_score, recall_score, f1_score
+
 
 from lib.lorehlt19helper import (
     boolean_gravity,
@@ -27,10 +32,17 @@ from lib.lorehlt19helper import (
     genNDCG_results,
     precisionN,
     genprecisionN_results,
+    genpr_dt,
+    genpr_dtp,
+    genpr_dtps,
+    genpr_dtpsu,
+    genpr_dtpsr,
+    genpr_dtpsur,
+    plotpr,
 )
 
 gravity_choices = {"numeric": numeric_gravity, "boolean": boolean_gravity}
-
+ndcgmethod_choices = {"method0": 0, "method1": 1}
 
 def define_parser():
     """CLI argument parser"""
@@ -52,6 +64,13 @@ def define_parser():
     )
 
     parser.add_argument(
+        "--ndcgmethod",
+        choices=list(ndcgmethod_choices.keys()),
+        default="method0",
+        help="specifies the nDCG logarithm discounting method. Defaults to 0. Set to 1 to match LoReHLT evaluation plan.",
+    )
+
+    parser.add_argument(
         "-l", "--filelist", help="Path to the ground truth directory", required=False
     )
     parser.add_argument(
@@ -68,10 +87,31 @@ def define_parser():
         required=False,
         action="store_true",
     )
+    parser.add_argument(
+        "--nonils",
+        help="If present will remove nil KBIDs from reference and submission",
+        required=False,
+        action="store_true",
+    )
+
+    parser.add_argument(
+        "--altref",
+        help="If present will use the oposite annotator's reference then what the random choice draws.",
+        required=False,
+        action="store_true",
+    )
 
     parser.add_argument(
         "-t", "--system-threshold", help="Threshold", required=False, default=0, type=float
     )
+
+    parser.add_argument(
+        "--computepr",
+        help="If present will compute Precision, Recall, F1 and generate PR Curves for different equivalence classes.",
+        required=False,
+        action="store_true",
+    )
+
     return parser
 
 
@@ -90,6 +130,9 @@ def main():
     threshold = args.system_threshold
     fnprefix = args.filename_prefix
     skipsecflag = args.skip_sec
+    altrefflag = args.altref
+    nonils = args.nonils
+    computepr = args.computepr
     # create output directory
     try:
         if not os.path.exists(outputDir):
@@ -105,12 +148,26 @@ def main():
         sys.exit("PATH NOT FOUND: " + systemPath)
 
     gravity_func = gravity_choices[args.gravity]
+    ndcgmethod = ndcgmethod_choices[args.ndcgmethod]
 
     referenceTable = getReference(
-        path=referencePath, gravity=gravity_func, filelist=referenceFilelist
+        path=referencePath, gravity=gravity_func, filelist=referenceFilelist, altref=altrefflag, nonils=nonils
     )
+
+
+# get threshold from the end of the json filename
+    if threshold == 0.0:
+        print("No threshold specified on the command line. Attempting to extract from submission filename.")
+        parsedThreshold = re.findall(r"[\d]+\.[\d]+$",os.path.basename(systemPath).split(".json")[0])
+        if len(parsedThreshold) > 0:
+            print("Threshold value present in filename: ", os.path.basename(systemPath))
+            threshold = float(parsedThreshold[0])
+        else:
+            print("No threshold present in filename. Using 0.0")
+
+
     systemTable = getsubmission(
-        filename=systemPath, gravity=gravity_func, filelist=referenceFilelist
+        filename=systemPath, gravity=gravity_func, filelist=referenceFilelist, threshold=threshold, nonils=nonils
     )
     systemTable = correctkbids(systemTable, referenceTable)
 
@@ -125,7 +182,7 @@ def main():
         )
 
     referenceNDCG = getreferenceNDCG(referenceTable)
-    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="standard")
+    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="standard", method=ndcgmethod)
     genNDCG_results(
         os.path.join(outputDir, fnprefix + "standard_nDCG_Scores.txt"), systemName, myndcg, k
     )
@@ -133,7 +190,7 @@ def main():
         os.path.join(outputDir, fnprefix + "standard_curve_nDCG" + ".pdf"), systemName, k, myndcg
     )
 
-    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="vindictive")
+    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="vindictive", method=ndcgmethod)
     genNDCG_results(
         os.path.join(outputDir, fnprefix + "vindictive_nDCG_Scores.txt"), systemName, myndcg, k
     )
@@ -141,7 +198,7 @@ def main():
         os.path.join(outputDir, fnprefix + "vindictive_curve_nDCG" + ".pdf"), systemName, k, myndcg
     )
 
-    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="forgiving")
+    myndcg, k = genNDCG(referenceNDCG, systemTable, breakties="forgiving", method=ndcgmethod)
     genNDCG_results(
         os.path.join(outputDir, fnprefix + "forgiving_nDCG_Scores.txt"), systemName, myndcg, k
     )
@@ -161,81 +218,88 @@ def main():
         os.path.join(outputDir, fnprefix + "precisionN.txt"), systemName, myprecisionN
     )
 
-    referenceTable = getReference(
-        path=referencePath, gravity=boolean_gravity, filelist=referenceFilelist
-    )
-    systemTable = getsubmission(
-        filename=systemPath, gravity=boolean_gravity, filelist=referenceFilelist
-    )
-    systemTable = correctkbids(systemTable, referenceTable)
 
-    systemTable_dt = systemTable[["DocumentID", "Type"]]
-    systemTable_dt = systemTable_dt.drop_duplicates()
-    referenceTable_dt = referenceTable[["doc_id", "type"]]
-    referenceTable_dt = referenceTable_dt.drop_duplicates()
+    if computepr:
+    # Precision/Recall Curves:
 
-    merged = pd.merge(
-        systemTable_dt,
-        referenceTable_dt,
-        left_on=["DocumentID", "Type"],
-        right_on=["doc_id", "type"],
-        how="inner",
-    )
-    merged = merged.drop_duplicates()
+        referenceTable = getReference(
+            path=referencePath, gravity=boolean_gravity, filelist=referenceFilelist, altref=altrefflag, nonils=nonils
+        )
+        systemTable = getsubmission(
+            filename=systemPath, gravity=boolean_gravity, filelist=referenceFilelist, nonils=nonils
+        )
 
-    try:
-        myprecision = merged.shape[0] / systemTable_dt.shape[0]
-    except ZeroDivisionError:
-        myprecision = 0
-    try:
-        myrecall = merged.shape[0] / referenceTable_dt.shape[0]
-    except ZeroDivisionError:
-        myrecall = 0
-    try:
-        myf1 = 2 * ((myprecision * myrecall) / (myprecision + myrecall))
-    except ZeroDivisionError:
-        myf1 = 0
+        systemTable = correctkbids(systemTable, referenceTable)
 
-    filename = os.path.join(outputDir, fnprefix + "_F1_type.txt")
 
-    with open(filename, "w") as F_results_file:
-        F_results_file.write("F1_Type:\t" + str(myf1) + "\n")
-        F_results_file.write("Precision_Type:\t" + str(myprecision) + "\n")
-        F_results_file.write("Recall_Type:\t" + str(myrecall) + "\n")
 
-    systemTable_dtp = systemTable[["DocumentID", "Type", "Place_KB_ID"]]
-    systemTable_dtp = systemTable_dtp.drop_duplicates()
-    referenceTable_dtp = referenceTable[["doc_id", "type", "kb_id"]]
-    referenceTable_dtp = referenceTable_dtp.drop_duplicates()
 
-    merged = pd.merge(
-        systemTable_dtp,
-        referenceTable_dtp,
-        left_on=["DocumentID", "Type", "Place_KB_ID"],
-        right_on=["doc_id", "type", "kb_id"],
-        how="inner",
-    )
-    merged = merged.drop_duplicates()
+        merged = genpr_dt(systemTable,referenceTable, threshold)
+        header='"Type" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveType.pdf"), merged, header, sysname=systemName)
 
-    try:
-        myprecision = merged.shape[0] / systemTable_dtp.shape[0]
-    except ZeroDivisionError:
-        myprecision = 0
-    try:
-        myrecall = merged.shape[0] / referenceTable_dtp.shape[0]
-    except ZeroDivisionError:
-        myrecall = 0
-    try:
-        myf1 = 2 * ((myprecision * myrecall) / (myprecision + myrecall))
-    except ZeroDivisionError:
-        myf1 = 0
+        filename = os.path.join(outputDir, fnprefix + "F1_Type.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_Type:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_Type:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_Type:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
 
-    filename = os.path.join(outputDir, fnprefix + "_F1_type_place.txt")
 
-    with open(filename, "w") as F_results_file:
-        F_results_file.write("F1_TypePlace:\t" + str(myf1) + "\n")
-        F_results_file.write("Precision_TypePlace:\t" + str(myprecision) + "\n")
-        F_results_file.write("Recall_TypePlace:\t" + str(myrecall) + "\n")
+        merged = genpr_dtp(systemTable,referenceTable, threshold)
+        header='"Type+Place" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveTypePlace.pdf"), merged, header, sysname=systemName)
+
+        filename = os.path.join(outputDir, fnprefix + "F1_TypePlace.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_TypePlace:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_TypePlace:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_TypePlace:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
+
+
+        merged = genpr_dtps(systemTable,referenceTable, threshold)
+        header='"Type+Place+Status" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveTypePlaceStatus.pdf"), merged, header, sysname=systemName)
+
+        filename = os.path.join(outputDir, fnprefix + "F1_TypePlaceStatus.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_TypePlaceStatus:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_TypePlaceStatus:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_TypePlaceStatus:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
+
+
+        merged = genpr_dtpsu(systemTable,referenceTable, threshold)
+        header='"Type+Place+Status+Urgency" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveTypePlaceStatusUrgency.pdf"), merged, header, sysname=systemName)
+
+        filename = os.path.join(outputDir, fnprefix + "_F1_TypePlaceStatusUrgency.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_TypeTypePlaceStatusUrgency:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_TypePlaceStatusUrgency:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_TypePlaceStatusUrgency:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
+
+
+        merged = genpr_dtpsr(systemTable,referenceTable, threshold)
+        header='"Type+Place+Status+Resolution" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveTypePlaceStatusResolution.pdf"), merged, header, sysname=systemName)
+
+        filename = os.path.join(outputDir, fnprefix + "_F1_TypePlaceStatusResolution.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_TypePlaceStatusResolution:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_TypePlaceStatusResolution:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_TypePlaceStatusResolution:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
+
+
+        merged = genpr_dtpsur(systemTable,referenceTable, threshold)
+        header='"Type+Place+Status+Urgency+Resolution" Precision-Recall curve for {}'.format(systemName)
+        plotpr(os.path.join(outputDir, fnprefix + "prcurveTypePlaceStatusUrgencyResolution.pdf"), merged, header, sysname=systemName)
+
+        filename = os.path.join(outputDir, fnprefix + "_F1_TypePlaceStatusUrgencyResolution.txt")
+        with open(filename, "w") as F_results_file:
+            F_results_file.write("F1_TypePlaceStatusUrgencyResolution:\t" + str(f1_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Precision_TypePlaceStatusUrgencyResolution:\t" + str(precision_score(merged.label, merged.pred)) + "\n")
+            F_results_file.write("Recall_TypePlaceStatusUrgencyResolution:\t" + str(recall_score(merged.label, merged.pred)) + "\n")
+
+
 
     print("Success!")
 

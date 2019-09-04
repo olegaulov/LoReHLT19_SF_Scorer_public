@@ -17,6 +17,10 @@ import simplejson as json
 from matplotlib.backends.backend_pdf import PdfPages
 from pandas.io.json import json_normalize
 from sklearn.metrics import average_precision_score, recall_score
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import precision_score, recall_score, f1_score
+import matplotlib.pyplot as plt
+from sklearn.metrics import average_precision_score
 
 from lib.sec_helper import get_SEC_ref, SEC_scoring, nil_mapper
 
@@ -34,12 +38,13 @@ except:
     sys.exit("CAN NOT OPEN CONFIG FILE: " + os.path.join(os.path.dirname(base_dir), "config.ini"))
 
 
-def getReference(path, gravity, filelist):
+def getReference(path, gravity, filelist, altref=0, nonils=False):
+    random.seed(a=1)
     speechref = getSpeechReference(path, gravity)
     if speechref is not None:
-        reference = pd.concat([getTextReference(path, gravity), speechref])
+        reference = pd.concat([getTextReference(path, gravity, altref=altref), speechref], sort=True)
     else:
-        reference = getTextReference(path, gravity)
+        reference = getTextReference(path, gravity, altref=altref)
     if filelist:
         print("Reference filelist present. Subsetting...")
         try:
@@ -47,10 +52,15 @@ def getReference(path, gravity, filelist):
         except:
             sys.exit("FAILED TO OPEN REFERENCE LIST FILE: " + filelist)
         reference = reference[reference["doc_id"].isin(myfiles[0])]
-    return reference.reset_index(drop=True)
+
+    if nonils:
+        print("Removing NILs from reference.")
+        reference = reference[~reference.kb_id.str.contains('nil', case=False)]
+    reference.reset_index(drop=True)
+    return reference
 
 
-def getTextReference(path, gravity):
+def getTextReference(path, gravity, altref=0):
     # path = # use your path
     allFiles = glob.glob(path + "/needs/*.tab") + glob.glob(path + "/issues/*.tab")
     sentiment_files = glob.glob(path + "/sentiments/*.tab")
@@ -86,12 +96,22 @@ def getTextReference(path, gravity):
             quoting=csv.QUOTE_NONE,
             dtype={"doc_id": object, "kb_id": object},
         )
-        myannotator = random.choice(df.user_id.unique())
+        myannotators = df.user_id.unique().tolist()
+        if len(myannotators) > 1:
+            if altref:
+                myannotators.remove(random.choice(myannotators))
+                myannotator = myannotators[0]
+            else:
+                myannotator = random.choice(myannotators)
+        else:
+            myannotator = myannotators[0]
+
+
         df = df[df.user_id == myannotator]
         list_.append(df)
     if not list_:
         sys.exit("Text reference list is empty. Please check the reference folder and try again.")
-    reference = reference.append(list_)
+    reference = reference.append(list_, sort=True)
     d = {
         "1_discomfort": 1,
         "2_injury": 2,
@@ -167,7 +187,7 @@ def getTextReference(path, gravity):
             na_values=["none"],
         )
         sentiment_df_list.append(df)
-    all_sentiments_df = pd.concat(sentiment_df_list, axis=0, ignore_index=True)
+    all_sentiments_df = pd.concat(sentiment_df_list, axis=0, ignore_index=True, sort=True)
     # some frame ids are repeated, they need to be grouped
     grouped = all_sentiments_df.groupby(["doc_id", "target"])
     grouped_sentiments = grouped.aggregate(lambda x: tuple(x))
@@ -211,7 +231,7 @@ def getSpeechReference(path, gravity):
         print("Speech reference list is empty.")
         return None
 
-    reference = pd.concat(list_)
+    reference = pd.concat(list_, sort=True)
     reference = reference[reference["situation_type"] != "out-of-domain"]
     d = {"Current": True, "Past Only": False, "Future": False, "not_current": False, np.nan: False}
     reference["current"] = reference["situation_status"].map(d)
@@ -282,7 +302,7 @@ def getSpeechReference(path, gravity):
     return reference
 
 
-def getsubmission(filename, gravity, filelist):
+def getsubmission(filename, gravity, filelist, threshold=0.0, nonils=False):
     base_dir = os.path.dirname(os.path.realpath(__file__))
     schemafile = os.path.join(
         os.path.dirname(base_dir), "schemas", "LoReHLT19-schema_V1.json"  # TODO update schema
@@ -319,7 +339,7 @@ def getsubmission(filename, gravity, filelist):
             "SEC",
         ]
     )
-    mysubmission = mysubmission.append(json_normalize(d))
+    mysubmission = mysubmission.append(json_normalize(d), sort=True)
 
     d = {True: True, False: False, np.nan: False}
     mysubmission["urgent"] = mysubmission["Urgent"].map(d)
@@ -347,6 +367,12 @@ def getsubmission(filename, gravity, filelist):
         except:
             sys.exit("FAILED TO OPEN REFERENCE LIST FILE: " + filelist)
         mysubmission = mysubmission[mysubmission["DocumentID"].isin(myfiles[0])]
+        if threshold:
+            print("Threshold present. Discarting frames below: ", str(threshold))
+            mysubmission = mysubmission[mysubmission["Confidence"] > threshold]
+    if nonils:
+        print("Removing NILs from submission.")
+        mysubmission = mysubmission[~mysubmission.Place_KB_ID.str.contains('nil', case=False)]            
     return mysubmission
 
 
@@ -400,6 +426,8 @@ def numeric_gravity(row):
     frame_type = row["frame_type"]
     try:
         sentiments = row["emotion_value"] if not pd.isna(row["emotion_value"]) else []
+        sentiments = [s for s in sentiments if type(s)==str]
+        sentiments_str = ','.join(sentiments)
     except KeyError:
         sentiments = []
         for block in row["SEC"]:
@@ -408,24 +436,33 @@ def numeric_gravity(row):
             if block["Emotion_Fear"]:
                 sentiments.append("fear")
         sentiments = list(set(sentiments))
+        sentiments_str = ','.join(sentiments)
 
     gravity = 0.0
 
     if frame_type == "need":
         if row["current"] and row["unresolved"] and row["urgent"]:
             gravity += 1
-            if "fear" in sentiments:
+            if "fear" in sentiments_str:
                 gravity += 0.2
-            if "anger" in sentiments:
+            if "anger" in sentiments_str:
                 gravity += 0.2
 
     elif frame_type == "issue":
         if row["current"] and row["urgent"]:
-            gravity += 1
-            if any(e in ["fear", "anger"] for e in sentiments):
-                gravity += 0.2
+            anger_and_fear_present = [s in sentiments_str for s in ["fear", "anger"]]
+            fear_or_anger_present = any(anger_and_fear_present)
+            both_fear_and_anger_present = all(anger_and_fear_present)
+            if fear_or_anger_present:
+                gravity += 1
+                if both_fear_and_anger_present:
+                    gravity += 0.2
 
     return gravity
+
+
+
+
 
 
 def genTrue_TypePlace(row):  # type place
@@ -645,7 +682,7 @@ def genSEC_results(
             ofile.write("\t".join([b[2]] + [str(e) for e in a]) + "\n")
 
 
-def genNDCG(referenceNDCG, systemTable, breakties=None):
+def genNDCG(referenceNDCG, systemTable, breakties=None, method=0):
     mysystem = (
         systemTable.groupby(["Place_KB_ID", "Type"])[
             "urgent", "unresolved", "current", "gravity", "frame_count"
@@ -679,7 +716,7 @@ def genNDCG(referenceNDCG, systemTable, breakties=None):
     else:
         sys.exit("Error: Unrecognized nDCG tie breaking method: " + breakties)
     k = range(1, len(merged["gain"]) + 1)
-    return [ndcg_at_k(merged, i) for i in k], k
+    return [ndcg_at_k(merged, i, method) for i in k], k
 
 
 def correctkbids(systemTable, referenceTable):
@@ -800,3 +837,170 @@ def genprecisionN_results(filename, systemName, myprecisionN):
             precisionN_results_file.write("NOTE: No high gravity situations were found\n")
     return
 
+
+
+#----------------------------------
+# Frame based presision recall functions
+def genpr_dt(systemTable,referenceTable, threshold):
+    systemTable_dt = systemTable[["DocumentID", "Type", "Confidence"]]
+    systemTable_dt = systemTable_dt.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type"],keep='first')
+    referenceTable_dt = referenceTable[["doc_id", "type"]]
+    referenceTable_dt = referenceTable_dt.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dt,
+        referenceTable_dt,
+        left_on=["DocumentID", "Type"],
+        right_on=["doc_id", "type"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+def genpr_dtp(systemTable,referenceTable, threshold):
+    systemTable_dtp = systemTable[["DocumentID", "Type","Place_KB_ID", "Confidence"]]
+    systemTable_dtp = systemTable_dtp.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type","Place_KB_ID"],keep='first')
+    referenceTable_dtp = referenceTable[["doc_id", "type", "kb_id"]]
+    referenceTable_dtp = referenceTable_dtp.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dtp,
+        referenceTable_dtp,
+        left_on=["DocumentID", "Type", "Place_KB_ID"],
+        right_on=["doc_id", "type", "kb_id"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) and (x["Place_KB_ID"]==x["kb_id"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) and pd.isna(x["Place_KB_ID"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) and pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) and not pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+def genpr_dtps(systemTable,referenceTable, threshold):
+    systemTable_dtps = systemTable[["DocumentID", "Type","Place_KB_ID","Status", "Confidence"]]
+    systemTable_dtps = systemTable_dtps.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type","Place_KB_ID", "Status"],keep='first')
+    referenceTable_dtps = referenceTable[["doc_id", "type", "kb_id", "status"]]
+    referenceTable_dtps = referenceTable_dtps.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dtps,
+        referenceTable_dtps,
+        left_on=["DocumentID", "Type", "Place_KB_ID","Status"],
+        right_on=["doc_id", "type", "kb_id", "status"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) and (x["Place_KB_ID"]==x["kb_id"]) and (x["Status"]==x["status"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) and pd.isna(x["Place_KB_ID"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) and pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) and not pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+
+def genpr_dtpsu(systemTable,referenceTable, threshold):
+    systemTable_dtpsu = systemTable[["DocumentID", "Type","Place_KB_ID","Status","urgent", "Confidence"]]
+    systemTable_dtpsu = systemTable_dtpsu.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type","Place_KB_ID", "Status", "urgent"],keep='first')
+    referenceTable_dtpsu = referenceTable[["doc_id", "type", "kb_id", "status", "urgent"]]
+    referenceTable_dtpsu = referenceTable_dtpsu.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dtpsu,
+        referenceTable_dtpsu,
+        left_on=["DocumentID", "Type", "Place_KB_ID","Status", "urgent"],
+        right_on=["doc_id", "type", "kb_id", "status", "urgent"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) and (x["Place_KB_ID"]==x["kb_id"]) and (x["Status"]==x["status"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) and pd.isna(x["Place_KB_ID"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) and pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) and not pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+def genpr_dtpsr(systemTable,referenceTable, threshold):
+    systemTable_dtpsr = systemTable[["DocumentID", "Type","Place_KB_ID","Status","unresolved", "Confidence"]]
+    systemTable_dtpsr = systemTable_dtpsr.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type","Place_KB_ID", "Status", "unresolved"],keep='first')
+    referenceTable_dtpsr = referenceTable[["doc_id", "type", "kb_id", "status", "unresolved"]]
+    referenceTable_dtpsr = referenceTable_dtpsr.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dtpsr,
+        referenceTable_dtpsr,
+        left_on=["DocumentID", "Type", "Place_KB_ID","Status", "unresolved"],
+        right_on=["doc_id", "type", "kb_id", "status", "unresolved"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) and (x["Place_KB_ID"]==x["kb_id"]) and (x["Status"]==x["status"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) and pd.isna(x["Place_KB_ID"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) and pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) and not pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+def genpr_dtpsur(systemTable,referenceTable, threshold):
+    systemTable_dtpsur = systemTable[["DocumentID", "Type","Place_KB_ID","Status","urgent","unresolved", "Confidence"]]
+    systemTable_dtpsur = systemTable_dtpsur.sort_values(by="Confidence", ascending=False).drop_duplicates(subset=["DocumentID", "Type","Place_KB_ID", "Status","urgent", "unresolved"],keep='first')
+    referenceTable_dtpsur = referenceTable[["doc_id", "type", "kb_id", "status","urgent", "unresolved"]]
+    referenceTable_dtpsur = referenceTable_dtpsur.drop_duplicates()
+
+    merged = pd.merge(
+        systemTable_dtpsur,
+        referenceTable_dtpsur,
+        left_on=["DocumentID", "Type", "Place_KB_ID","Status", "urgent","unresolved"],
+        right_on=["doc_id", "type", "kb_id", "status","urgent", "unresolved"],
+        how="outer",
+    )
+
+    merged["tp"]=merged.apply(lambda x: 1 if (x["DocumentID"]==x["doc_id"]) and (x["Type"]==x["type"]) and (x["Place_KB_ID"]==x["kb_id"]) and (x["Status"]==x["status"]) else 0, axis=1)
+    merged["fn"]=merged.apply(lambda x: 1 if pd.isna(x["DocumentID"]) and pd.isna(x["Type"]) and pd.isna(x["Place_KB_ID"]) else 0, axis=1)
+    merged["fp"]=merged.apply(lambda x: 1 if pd.isna(x["doc_id"]) and pd.isna(x["type"]) and pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["label"]=merged.apply(lambda x: 1 if not pd.isna(x["doc_id"]) and not pd.isna(x["type"]) and not pd.isna(x["kb_id"]) else 0, axis=1)
+    merged["pred"]=merged.apply(lambda x: 1 if x["Confidence"] > threshold else 0, axis=1)
+    merged.Confidence = merged.Confidence.fillna(0)
+    merged.sort_values(by="Confidence", ascending=False, inplace=True)
+    return merged
+
+
+def plotpr(filename, merged, header, sysname):
+    try:
+        #precision, recall, _ = precision_recall_curve(merged.label, merged.Confidence)
+        precision, recall, _ = precision_recall_curve(merged.label.values, merged.Confidence.values)
+        precision=precision[-2:0:-1]
+        recall=recall[-2:0:-1]
+        plt.step(recall, precision, color='b', alpha=0.2, where='post')
+        plt.fill_between(recall, precision, alpha=0.2, color='b', step='post')
+        plt.xlabel('Recall')
+        plt.ylabel('Precision')
+        #plt.ylim([0.0, 1.05])
+        #plt.xlim([0.0, 1.0])
+        plt.title(header + '\nAP={0:0.2f}'.format(average_precision_score(merged.label, merged.Confidence)))
+    except ValueError:
+        print("ValueError exception. No Precision-Recall curve will be created")
+    else:
+        gc = plt.gcf()
+        gc.set_size_inches(7, 7)
+        pp = PdfPages(filename)
+        pp.savefig(plt.gcf())
+        pp.close()
+        plt.close()
+    return
