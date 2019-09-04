@@ -1,6 +1,6 @@
 __author__ = "Oleg Aulov (oleg.aulov@nist.gov), Marion Le Bras (marion.lebras@nist.gov)"
-__version__ = "Development: 0.9.5"
-__date__ = "07/15/2019"
+__version__ = "Development: 0.9.7"
+__date__ = "09/04/2019"
 
 import configparser
 import csv
